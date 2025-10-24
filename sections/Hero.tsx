@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "./ui/button";
+import Button from "../components/ui/button";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AnimatedCounter from "./AnimatedCounter";
+import AnimatedCounter from "../components/AnimatedCounter";
 
 export default function Hero() {
   useGSAP(() => {
@@ -34,8 +34,8 @@ export default function Hero() {
               </div>
             </div>
             {/* <Button
-              text="Our Work"
-              className="md:w-80 md:h-16 w-60 h-12"
+              text="Join Now"
+              className="w-fit h-8 md:h-10"
               id="counter"
             /> */}
           </div>
