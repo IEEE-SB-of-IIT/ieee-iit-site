@@ -1,10 +1,7 @@
 "use client";
 
-import Button from "../components/ui/button";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import AnimatedCounter from "../components/AnimatedCounter";
 
 export default function Hero() {
   useGSAP(() => {
@@ -16,33 +13,42 @@ export default function Hero() {
   });
 
   return (
-    <section id="hero" className="relative overflow-hidden">
-      <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.png" alt="Background Image" />
-      </div>
+    <section className="relative mt-[240px] mb-10 flex items-center justify-center overflow-hidden pt-16">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial opacity-30 animate-glow" />
 
-      <div className="hero-layout mt-50">
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
-          <div className="flex flex-col gap-7">
-            <div className="hero-text">
-              <span className="text-white-50 md:text-3xl text-xl">
-                IEEE Student Branch of IIT
-              </span>
-              <div className="mt-5">
-                <h1>Advancing Technology</h1>
-                <h1> for Humanity</h1>
-              </div>
-            </div>
-            {/* <Button
-              text="Join Now"
-              className="w-fit h-8 md:h-10"
-              id="counter"
-            /> */}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 backdrop-blur-lg border border-white/20 text-sm">
+            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+            Advancing Technology for Humanity
           </div>
-        </header>
-      </div>
 
-      <AnimatedCounter />
+          <h3 className="text-6xl md:text-7xl lg:text-6xl font-bold leading-tight animate-slide-up">
+            IEEE Student Branch of IIT
+          </h3>
+
+          <p
+            className="text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Empowering students to lead innovation through technology, research,
+            and collaboration that drives real-world impact.
+          </p>
+
+          <div
+            className="flex items-center justify-center gap-4 animate-slide-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            {/* <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 gap-2 group"
+            >
+              Get started
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button> */}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

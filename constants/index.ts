@@ -7,19 +7,23 @@ export const counterItems = [
 
 export const navLinks = [
   {
-    name: "Work",
-    link: "#work",
+    name: "Home",
+    link: "#projects",
   },
   {
-    name: "Experience",
+    name: "About",
+    link: "#projects",
+  },
+  {
+    name: "Projects",
     link: "#experience",
   },
   {
-    name: "Skills",
+    name: "Team",
     link: "#skills",
   },
   {
-    name: "Testimonials",
+    name: "Contact Us",
     link: "#testimonials",
   },
 ];

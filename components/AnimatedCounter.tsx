@@ -1,4 +1,4 @@
-// components/AnimatedCounter.tsx
+"use client";
 
 import { useRef, useEffect } from "react";
 import CountUp from "react-countup";
@@ -97,11 +97,11 @@ const AnimatedCounter = () => {
       <div
         id="counter"
         ref={counterRef}
-        className="counter-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:mt-0"
+        className="counter-section max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 xl:mt-0"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {counterItems.map((item, index) => {
-            const baseClassName = `counter-card flex flex-col justify-center relative min-h-[150px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `counter-card flex flex-col justify-center relative min-h-[120px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               bentoProps.enableBorderGlow ? "counter-card--border-glow" : ""
             }`;
 
@@ -128,7 +128,7 @@ const AnimatedCounter = () => {
                 enableMagnetism={bentoProps.enableMagnetism}
               >
                 <div className="flex flex-col items-center text-center relative text-white">
-                  <div className="counter-number text-4xl sm:text-5xl font-bold mb-2 drop-shadow-[0_0_4px_rgba(132,0,255,0.3)]">
+                  <div className="counter-number text-4xl sm:text-4xl font-bold mb-2 drop-shadow-[0_0_4px_rgba(132,0,255,0.3)]">
                     <CountUp
                       end={item.value}
                       suffix={item.suffix}
@@ -137,7 +137,7 @@ const AnimatedCounter = () => {
                       enableScrollSpy
                     />
                   </div>
-                  <div className="text-base sm:text-lg opacity-90">
+                  <div className="text-base sm:text-md opacity-90">
                     {item.label}
                   </div>
                 </div>
