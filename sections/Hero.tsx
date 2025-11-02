@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -13,14 +14,66 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative mt-[240px] mb-10 flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative pt-[260px] mb-10 flex items-center justify-center overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-radial opacity-30 animate-glow" />
+      {/* Replace the heroBackground <img> with this custom gradient div */}
+      <div className="absolute -top-[60%] left-1/2 w-[150%] h-[120%] -translate-x-1/2 overflow-hidden pointer-events-none">
+        {/* Half-circle blue gradient */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] rounded-full bg-gradient-to-b from-[#00629B]/70 to-transparent blur-[180px]" />
+
+        {/* Subtle concentric rings */}
+        <svg
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[700px]"
+          viewBox="0 0 1400 700"
+        >
+          <circle
+            cx="700"
+            cy="350"
+            r="250"
+            stroke="#00629B"
+            strokeOpacity="0.2"
+            fill="none"
+            strokeWidth="1.5"
+          />
+          <circle
+            cx="700"
+            cy="350"
+            r="400"
+            stroke="#00629B"
+            strokeOpacity="0.15"
+            fill="none"
+            strokeWidth="1"
+          />
+          <circle
+            cx="700"
+            cy="350"
+            r="550"
+            stroke="#00629B"
+            strokeOpacity="0.1"
+            fill="none"
+            strokeWidth="1"
+          />
+
+          <circle
+            cx="700"
+            cy="350"
+            r="700"
+            stroke="#00629B"
+            strokeOpacity="0.1"
+            fill="none"
+            strokeWidth="1"
+          />
+        </svg>
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 backdrop-blur-lg border border-white/20 text-sm">
-            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            Advancing Technology for Humanity
+            <img
+              src="images/logos/SB.png"
+              alt=""
+              className="h-10 w-auto filter invert brightness-0"
+            />
           </div>
 
           <h3 className="text-6xl md:text-7xl lg:text-6xl font-bold leading-tight animate-slide-up">
@@ -39,13 +92,12 @@ export default function Hero() {
             className="flex items-center justify-center gap-4 animate-slide-up"
             style={{ animationDelay: "0.2s" }}
           >
-            {/* <Button
+            <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 gap-2 group"
+              className="hover:cursor-pointer contact-btn group bg-white text-black px- py-2 rounded-md font-semibold hover:bg-blue-400 hover:text-white transition-colors duration-300"
             >
-              Get started
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button> */}
+              Become an IEEE Innovator
+            </Button>
           </div>
         </div>
       </div>

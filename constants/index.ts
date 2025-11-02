@@ -12,7 +12,7 @@ export const navLinks = [
   },
   {
     name: "About",
-    link: "#projects",
+    link: "#about",
   },
   {
     name: "Projects",
@@ -25,5 +25,32 @@ export const navLinks = [
   {
     name: "Contact Us",
     link: "#testimonials",
+  },
+];
+
+export const chapters = [
+  {
+    name: "Computer Society",
+    image: "CS.png",
+    instagram: "https://instagram.com/ieee_cs_iit",
+    facebook: "https://facebook.com/ieee_cs_iit",
+  },
+  {
+    name: "Robotics & Automation",
+    image: "RAS.png",
+    instagram: "https://instagram.com/ieee_ras_iit",
+    facebook: "https://facebook.com/ieee_ras_iit",
+  },
+  {
+    name: "Women in Engineering",
+    image: "WIE.png",
+    instagram: "https://instagram.com/ieee_wie_iit",
+    facebook: "https://facebook.com/ieee_wie_iit",
+  },
+  {
+    name: "Power & Energy",
+    image: "CIS.png",
+    instagram: "https://instagram.com/ieee_pes_iit",
+    facebook: "https://facebook.com/ieee_pes_iit",
   },
 ];

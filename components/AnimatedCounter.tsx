@@ -116,32 +116,32 @@ const AnimatedCounter = () => {
             } as React.CSSProperties;
 
             return (
-              <ParticleCard
-                key={index}
-                className={baseClassName}
-                style={cardStyle}
-                disableAnimations={bentoProps.disableAnimations}
-                particleCount={bentoProps.particleCount}
-                glowColor={bentoProps.glowColor}
-                enableTilt={bentoProps.enableTilt}
-                clickEffect={bentoProps.clickEffect}
-                enableMagnetism={bentoProps.enableMagnetism}
-              >
-                <div className="flex flex-col items-center text-center relative text-white">
-                  <div className="counter-number text-4xl sm:text-4xl font-bold mb-2 drop-shadow-[0_0_4px_rgba(132,0,255,0.3)]">
-                    <CountUp
-                      end={item.value}
-                      suffix={item.suffix}
-                      duration={2.5}
-                      scrollSpyOnce
-                      enableScrollSpy
-                    />
-                  </div>
-                  <div className="text-base sm:text-md opacity-90">
-                    {item.label}
-                  </div>
+              // <ParticleCard
+              //   key={index}
+              //   className={baseClassName}
+              //   style={cardStyle}
+              //   disableAnimations={bentoProps.disableAnimations}
+              //   particleCount={bentoProps.particleCount}
+              //   glowColor={bentoProps.glowColor}
+              //   enableTilt={bentoProps.enableTilt}
+              //   clickEffect={bentoProps.clickEffect}
+              //   enableMagnetism={bentoProps.enableMagnetism}
+              // >
+              <div className="flex flex-col items-center text-center relative text-white bg-white/10 backdrop-blur-lg border border-white/20 px-10 py-5 rounded-lg">
+                <div className="counter-number text-4xl sm:text-4xl font-bold mb-2">
+                  <CountUp
+                    end={item.value}
+                    suffix={item.suffix}
+                    duration={2.5}
+                    scrollSpyOnce
+                    enableScrollSpy
+                  />
                 </div>
-              </ParticleCard>
+                <div className="text-base sm:text-md opacity-90">
+                  {item.label}
+                </div>
+              </div>
+              // </ParticleCard>
             );
           })}
         </div>
