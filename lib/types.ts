@@ -12,10 +12,11 @@ export interface Chapters {
 }
 
 export interface Project {
-  id: string;
-  title: string;
+  id: number;
   subtitle: string;
+  title: string;
   description: string;
   image: string;
-  size: 'large' | 'medium' | 'small';
+  className: string;
+  type: string;
 }

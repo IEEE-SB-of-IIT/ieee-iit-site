@@ -1,4 +1,4 @@
-import { Chapters } from "@/lib/types";
+import { Chapters, Project } from "@/lib/types";
 import { Award, Users, Globe, Trophy, Calendar } from 'lucide-react';
 
 export const counterItems = [
@@ -105,48 +105,49 @@ export const aboutData = [
   }
 ];
 
-export const projectsData = [
+export const projectsData: Project[] = [
   {
     id: 1,
-    subtitle: "Project 1",
-    title: "Smart Campus AI",
-    description: "Futuristic interface connecting the campus through an integrated AI network for efficient resource management.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
+    subtitle: "Startup Battle",
+    title: "CodeSprint",
+    description: "Sri Lanka’s largest inter-university startup incubator empowering undergraduates to launch impactful tech.",
+    image: "codesprint.png",
     className: "md:col-span-2 md:row-span-2",
     type: "large"
   },
   {
     id: 2,
-    subtitle: "Project 2",
-    title: "Autonomous Drone Fleet",
-    description: "Drones for autonomous surveillance and delivery systems.",
-    image: "https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=600&auto=format&fit=crop",
+    subtitle: "Robotics Contest",
+    title: "MicroMaze",
+    description: "A competitive micromouse robotics challenge fostering innovation.",
+    image: "micromaze.jpg",
     className: "",
     type: "split-right"
   },
   {
     id: 3,
-    subtitle: "Project 3",
-    title: "Renewable Energy Grid",
-    description: "Solar evolution for sustainable campus power.",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600&auto=format&fit=crop",
+    subtitle: "Hackathon",
+    title: "CODERALLY",
+    description: "A 24-hour hackathon testing competitive programming excellence.",
+    image: "coderally.jpg",
     className: "",
     type: "split-right-large"
   },
   {
     id: 4,
-    subtitle: "Project 4",
-    title: "IoT Health Monitor",
-    description: "Real-time health data analytics platform.",
+    subtitle: "MedTech Summit",
+    title: "IGNITE",
+    description: "A two phase MedTech event sparking innovation through IT.",
+    image: "ignite.png",
     className: "md:col-span-1 md:row-span-1 bg-ieee-dark text-white",
     type: "icon"
   },
   {
     id: 5,
-    subtitle: "Project 5",
-    title: "Machine Learning Accelerator",
-    description: "Hardware acceleration for high-performance ML models and chip implementation.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800",
+    subtitle: "Mystery Hunt",
+    title: "SHErlock",
+    description: "A national problem solving competition celebrating women in STEM.",
+    image: "sherlock.jpg",
     className: "md:col-span-2 bg-gradient-to-r from-ieee-lightest to-white",
     type: "split-half"
   }
