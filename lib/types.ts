@@ -6,7 +6,9 @@ export interface Chapters {
   description: string;
   icon: string;
   instagram: string;
-  facebook: string
+  facebook: string;
+  linkedin: string;
+  color: string;
 }
 
 export interface Project {

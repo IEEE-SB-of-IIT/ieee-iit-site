@@ -41,6 +41,8 @@ export const chapters: Chapters[] = [
     icon: 'CS.png',
     instagram: 'https://instagram.com/ieee_cs_iit',
     facebook: 'https://facebook.com/ieee_cs_iit',
+    linkedin: 'https://linkedin.com/ieee_cs_iit',
+    color: '#FAA41B',
   },
   {
     id: 'RAS',
@@ -50,6 +52,8 @@ export const chapters: Chapters[] = [
     icon: 'RAS.png',
     instagram: 'https://instagram.com/ieee_ras_iit',
     facebook: 'https://facebook.com/ieee_ras_iit',
+    linkedin: 'https://linkedin.com/ieee_ras_iit',
+    color: '#990A2C',
   },
   {
     id: 'WIE',
@@ -59,6 +63,8 @@ export const chapters: Chapters[] = [
     icon: 'WIE.png',
     instagram: 'https://instagram.com/ieee_wie_iit',
     facebook: 'https://facebook.com/ieee_wie_iit',
+    linkedin: 'https://linkedin.com/ieee_wie_iit',
+    color: '#742380',
   },
   {
     id: 'CIS',
@@ -68,6 +74,8 @@ export const chapters: Chapters[] = [
     icon: 'CIS.png',
     instagram: 'https://instagram.com/ieee_cis_iit',
     facebook: 'https://facebook.com/ieee_cis_iit',
+    linkedin: 'https://linkedin.com/ieee_cis_iit',
+    color: '#00AEEF',
   },
   {
     id: 'EMBS',
@@ -77,6 +85,8 @@ export const chapters: Chapters[] = [
     icon: 'EMBS.png',
     instagram: 'https://instagram.com/ieee_embs_iit',
     facebook: 'https://facebook.com/ieee_embs_iit',
+    linkedin: 'https://linkedin.com/ieee_embs_iit',
+    color: '#7A2A82',
   },
 ];
 
