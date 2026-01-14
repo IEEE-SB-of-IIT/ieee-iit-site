@@ -48,7 +48,7 @@ const Navbar = () => {
         className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-in-out ${
           isScrolled
             ? 'top-4 w-[90%] max-w-xl rounded-full bg-ieee-lightest/50 backdrop-blur-xl shadow-lg border border-white/40 py-2'
-            : 'top-24 w-[95%] max-w-4xl rounded-2xl bg-ieee-lightest/50 backdrop-blur-sm border border-white/20 py-3'
+            : 'top-20 w-[95%] max-w-3xl rounded-2xl bg-ieee-lightest/50 backdrop-blur-sm border border-white/20 py-3'
         }`}
       >
         <div className="px-6 flex justify-between md:justify-center items-center relative">

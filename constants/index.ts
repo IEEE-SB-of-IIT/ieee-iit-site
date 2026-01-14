@@ -77,3 +77,65 @@ export const chapters: Chapters[] = [
     facebook: 'https://facebook.com/ieee_embs_iit',
   },
 ];
+
+export const aboutData = [
+  {
+    title: "Our Mission",
+    description: "The IEEE Student Branch of IIT strives to advance technology for humanity by fostering a community of innovation. We focus on technical excellence, professional development, and collaborative learning to empower students in their engineering journey."
+  },
+  {
+    title: "Our Vision",
+    description: "We envision a world where technology seamlessly integrates with human needs. Our vision projects a future where our student members lead the way in sustainable technological solutions, ethical engineering, and global connectivity."
+  },
+  {
+    title: "What We Do",
+    description: "The branch organizes workshops, hackathons, and guest lectures to bridge the gap between academic theory and industry practice. We create an environment that encourages experimentation, discussion, and hands-on learning."
+  }
+];
+
+export const projectsData = [
+  {
+    id: 1,
+    subtitle: "Project 1",
+    title: "Smart Campus AI",
+    description: "Futuristic interface connecting the campus through an integrated AI network for efficient resource management.",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
+    className: "md:col-span-2 md:row-span-2",
+    type: "large"
+  },
+  {
+    id: 2,
+    subtitle: "Project 2",
+    title: "Autonomous Drone Fleet",
+    description: "Drones for autonomous surveillance and delivery systems.",
+    image: "https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=600&auto=format&fit=crop",
+    className: "",
+    type: "split-right"
+  },
+  {
+    id: 3,
+    subtitle: "Project 3",
+    title: "Renewable Energy Grid",
+    description: "Solar evolution for sustainable campus power.",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600&auto=format&fit=crop",
+    className: "",
+    type: "split-right-large"
+  },
+  {
+    id: 4,
+    subtitle: "Project 4",
+    title: "IoT Health Monitor",
+    description: "Real-time health data analytics platform.",
+    className: "md:col-span-1 md:row-span-1 bg-ieee-dark text-white",
+    type: "icon"
+  },
+  {
+    id: 5,
+    subtitle: "Project 5",
+    title: "Machine Learning Accelerator",
+    description: "Hardware acceleration for high-performance ML models and chip implementation.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800",
+    className: "md:col-span-2 bg-gradient-to-r from-ieee-lightest to-white",
+    type: "split-half"
+  }
+];
