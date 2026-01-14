@@ -6,9 +6,9 @@ import { aboutData } from '@/constants'
 
 const About = () => {
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="relative">
       <Container>
-        <SectionHeader title="Why Join Us" />
+        <SectionHeader title="About Us" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {aboutData.map((item, index) => (

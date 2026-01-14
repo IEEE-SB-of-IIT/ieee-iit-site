@@ -4,9 +4,9 @@ import Container from './ui/Container'
 import SectionHeader from './ui/SectionHeader'
 import ChapterCard from './ui/ChapterCard'
 
-const Societies = () => {
+const Chapters = () => {
   return (
-    <section className="py-20 overflow-x-hidden">
+    <section className="overflow-x-hidden">
       <Container>
         <SectionHeader title="Our Chapters" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -19,4 +19,4 @@ const Societies = () => {
   )
 }
 
-export default Societies
+export default Chapters

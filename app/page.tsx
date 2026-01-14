@@ -1,7 +1,7 @@
 import About from "@/components/About";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
-import Societies from "@/components/Societies";
+import Societies from "@/components/Chapters";
 
 export default function Home() {
   return (

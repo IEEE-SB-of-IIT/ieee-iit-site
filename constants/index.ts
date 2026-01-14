@@ -1,10 +1,12 @@
 import { Chapters } from "@/lib/types";
+import { Award, Users, Globe, Trophy, Calendar } from 'lucide-react';
 
 export const counterItems = [
-  { value: 10, suffix: "+", label: "Years of Excellence" },
-  { value: 1000, suffix: "+", label: "Active Members" },
-  { value: 9, suffix: "th", label: "Ranked Worldwide" },
-  { value: 1, suffix: "st", label: "Ranked in Sri Lanka" },
+  { value: 10, suffix: "+", label: "Years of Excellence", icon: Award },
+  { value: 1000, suffix: "+", label: "Active Members", icon: Users },
+  { value: 9, suffix: "th", label: "Ranked Worldwide", icon: Globe },
+  { value: 1, suffix: "st", label: "Ranked in Sri Lanka", icon: Trophy },
+  { value: 100, suffix: "+", label: "Events Organized", icon: Calendar },
 ];
 
 export const navLinks = [
