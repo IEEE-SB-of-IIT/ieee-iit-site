@@ -1,5 +1,6 @@
 import { Chapters, Project } from "@/lib/types";
 import { Award, Users, Globe, Trophy, Calendar } from 'lucide-react';
+import { FaWhatsapp, FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaTiktok } from 'react-icons/fa6';
 
 export const counterItems = [
   { value: 10, suffix: "+", label: "Years of Excellence", icon: Award },
@@ -155,7 +156,7 @@ export const projectsData: Project[] = [
 
 export const contactInfo = {
   organization: "IEEE Student Branch of IIT",
-  address: "Informatics Institute of Technology, 57 Ramakrishna Road, Colombo 06, Sri Lanka",
+  address: "57 Ramakrishna Road, Colombo 06, Sri Lanka",
   email: "ieee@iit.ac.lk",
   socials: {
     whatsapp: "https://wa.me/94112589362",
@@ -165,5 +166,49 @@ export const contactInfo = {
     linkedin: "https://www.linkedin.com/company/ieee-iit/",
     tiktok: "https://www.tiktok.com/@ieeeiit"
   },
+  socialLinks: [
+    {
+      name: "WhatsApp",
+      href: "https://wa.me/94112589362",
+      icon: FaWhatsapp,
+      color: "#25D366",
+      ariaLabel: "Chat on WhatsApp"
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/ieeeiit/",
+      icon: FaInstagram,
+      color: "#E4405F",
+      ariaLabel: "Follow on Instagram"
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/IEEEIIT/",
+      icon: FaFacebookF,
+      color: "#1877F2",
+      ariaLabel: "Follow on Facebook"
+    },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/@IEEEIIT",
+      icon: FaYoutube,
+      color: "#FF0000",
+      ariaLabel: "Subscribe on YouTube"
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/ieee-iit/",
+      icon: FaLinkedinIn,
+      color: "#0A66C2",
+      ariaLabel: "Follow on LinkedIn"
+    },
+    {
+      name: "TikTok",
+      href: "https://www.tiktok.com/@ieeeiit",
+      icon: FaTiktok,
+      color: "#000000",
+      ariaLabel: "Follow on TikTok"
+    }
+  ],
   mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d990.3028095464551!2d79.859851!3d6.865271!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25ba4e617b3d9%3A0xd5a3b0418f1cf497!2sInformatics%20Institute%20of%20Technology%20(IIT)!5e0!3m2!1sen!2sus!4v1768415764505!5m2!1sen!2sus"
 };

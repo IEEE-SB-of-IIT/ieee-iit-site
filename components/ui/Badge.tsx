@@ -4,17 +4,21 @@ import { cn } from '@/lib/utils';
 interface BadgeProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const Badge = ({ children, className }: BadgeProps) => {
+const Badge = ({ children, className, style }: BadgeProps) => {
   return (
-    <div className={cn(
-      "inline-block px-4 py-1.5 rounded-full",
-      "bg-white/10 backdrop-blur-md border border-white/20",
-      "text-ieee-medium font-semibold text-sm tracking-wider uppercase",
-      "shadow-sm",
-      className
-    )}>
+    <div 
+      className={cn(
+        "inline-block px-4 py-1.5 rounded-full",
+        "bg-white/10 backdrop-blur-md border border-white/20",
+        "text-ieee-medium font-semibold text-sm tracking-wider",
+        "shadow-sm transition-all duration-300",
+        className
+      )}
+      style={style}
+    >
       {children}
     </div>
   );

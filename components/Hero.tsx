@@ -67,7 +67,7 @@ const Hero = () => {
           {counterItems.map((item, index) => {
             const Icon = item.icon;
             return (
-              <Badge key={index} className="bg-white/10 backdrop-blur-xl border border-white/30 p-4 rounded-xl shadow-md hover:scale-101 transition-transform duration-300 min-w-[200px]">
+              <Badge key={index} className="uppercase bg-white/10 backdrop-blur-xl border border-white/30 p-4 rounded-xl shadow-md hover:scale-101 transition-transform duration-300 min-w-[200px]">
                   <div className="flex items-center gap-3 mb-2">
                       {Icon && <Icon size={18} className="text-ieee-gray" />}
                       <span className="text-ieee-gray font-semibold text-sm">{item.label}</span>
