@@ -10,7 +10,7 @@ const Projects = () => {
     const [p1, p2, p3, p4, p5] = projectsData;
 
   return (
-    <section id="projects" className="pb-35 bg-gradient-to-b from-transparent to-ieee-light/5">
+    <section id="projects" className="relative">
       <Container>
         <SectionHeader title="Flagship Projects" />
 

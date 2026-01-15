@@ -17,7 +17,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'Events', 'Projects', 'About', 'Contact'];
+  const navLinks = ['Home', 'About', 'Projects', 'Contact', 'Team'];
 
 
   return (
@@ -61,7 +61,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <a
                 key={link}
-                href={link === 'Home' ? '/' : `#${link.toLowerCase()}`}
+                href={link === 'Home' ? '/' : link === "Team"? "/our-team" : `#${link.toLowerCase()}`}
                 onClick={(e) => {
                   if (link === 'Home') {
                     e.preventDefault();

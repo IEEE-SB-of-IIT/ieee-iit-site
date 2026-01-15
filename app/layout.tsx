@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "IEEE Student Branch - IIT",
+  title: "IEEE Student Branch of IIT",
   description: "IEEE Student Branch of Informatics Institute of Technology",
 };
 

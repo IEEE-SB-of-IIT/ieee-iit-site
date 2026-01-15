@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface BentoCardProps {
   children: ReactNode;
-  className?: string; // To handle col-span, row-span, bg colors etc.
+  className?: string;
 }
 
 const BentoCard = ({ children, className }: BentoCardProps) => {

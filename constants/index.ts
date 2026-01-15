@@ -110,7 +110,7 @@ export const projectsData: Project[] = [
     id: 1,
     subtitle: "Startup Battle",
     title: "CodeSprint",
-    description: "Sri Lanka’s largest inter-university startup incubator empowering undergraduates to launch impactful tech.",
+    description: "Sri Lanka's largest inter-university startup incubator empowering undergraduates to launch impactful tech.",
     image: "codesprint.png",
     className: "md:col-span-2 md:row-span-2",
     type: "large"
@@ -152,3 +152,18 @@ export const projectsData: Project[] = [
     type: "split-half"
   }
 ];
+
+export const contactInfo = {
+  organization: "IEEE Student Branch of IIT",
+  address: "Informatics Institute of Technology, 57 Ramakrishna Road, Colombo 06, Sri Lanka",
+  email: "ieee@iit.ac.lk",
+  socials: {
+    whatsapp: "https://wa.me/94112589362",
+    instagram: "https://www.instagram.com/ieeeiit/",
+    facebook: "https://www.facebook.com/IEEEIIT/",
+    youtube: "https://www.youtube.com/@IEEEIIT",
+    linkedin: "https://www.linkedin.com/company/ieee-iit/",
+    tiktok: "https://www.tiktok.com/@ieeeiit"
+  },
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d990.3028095464551!2d79.859851!3d6.865271!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25ba4e617b3d9%3A0xd5a3b0418f1cf497!2sInformatics%20Institute%20of%20Technology%20(IIT)!5e0!3m2!1sen!2sus!4v1768415764505!5m2!1sen!2sus"
+};

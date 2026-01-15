@@ -20,3 +20,10 @@ export interface Project {
   className: string;
   type: string;
 }
+
+export interface Member {
+  name: string;
+  role: string;
+  email: string; 
+  linkedin: string;
+}
