@@ -26,4 +26,5 @@ export interface Member {
   role: string;
   email: string; 
   linkedin: string;
+  image: string;
 }
