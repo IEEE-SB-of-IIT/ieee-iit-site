@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
-
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,8 +19,55 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Projects', 'Contact', 'Team'];
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection('');
+      return;
+    }
 
+    const sections = ['about', 'projects', 'contact'];
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px', // Detect when section is in upper-mid viewport
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    // Special case for top of page (Home)
+    const handleScroll = () => {
+      if (window.scrollY < 100) {
+        setActiveSection('');
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [pathname]);
+
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/#about', id: 'about' },
+    { name: 'Projects', href: '/#projects', id: 'projects' },
+    { name: 'Contact', href: '/#contact', id: 'contact' },
+    { name: 'Team', href: '/our-team' }
+  ];
 
   return (
    <>
@@ -58,34 +107,33 @@ const Navbar = () => {
           </span>
 
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link}
-                href={link === 'Home' ? '/' : link === "Team"? "/our-team" : `#${link.toLowerCase()}`}
-                onClick={(e) => {
-                  if (link === 'Home') {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    window.history.pushState(null, '', '/');
-                  }
-                }}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden group ${
-                  link === 'Home' 
-                    ? 'text-white' 
-                    : 'text-ieee-dark hover:text-ieee-medium'
-                }`}
-              >
-                {link === 'Home' && (
-                  <span className="absolute inset-0 bg-ieee-blue rounded-full shadow-md -z-10"></span>
-                )}
-                
-                {link !== 'Home' && (
-                  <span className="absolute inset-0 bg-ieee-blue/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></span>
-                )}
-                
-                {link}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = (link.id && pathname === '/')
+                ? activeSection === link.id 
+                : (pathname === link.href && activeSection === '');
+              
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden group ${
+                    isActive 
+                      ? 'text-white' 
+                      : 'text-ieee-dark hover:text-ieee-medium'
+                  }`}
+                >
+                  {isActive && (
+                    <span className="absolute inset-0 bg-ieee-blue rounded-full shadow-md -z-10"></span>
+                  )}
+                  
+                  {!isActive && (
+                    <span className="absolute inset-0 bg-ieee-blue/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></span>
+                  )}
+                  
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
 
           <button 
@@ -103,23 +151,26 @@ const Navbar = () => {
            }`}
         >
           <div className="bg-ieee-lightest/95 backdrop-blur-2xl border border-white/50 rounded-2xl shadow-xl p-2 mx-2 flex flex-col gap-1">
-             {navLinks.map((link) => (
-                <a
-                  key={link}
-                  href={link === 'Home' ? '/' : `#${link.toLowerCase()}`}
-                  className="block px-4 py-3 rounded-xl text-ieee-dark font-medium text-center hover:bg-white/50 active:scale-95 transition-all"
-                  onClick={(e) => {
-                    setIsMobileMenuOpen(false);
-                    if (link === 'Home') {
-                      e.preventDefault();
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      window.history.pushState(null, '', '/');
-                    }
-                  }}
-                >
-                  {link}
-                </a>
-              ))}
+             {navLinks.map((link) => {
+                const isActive = (link.id && pathname === '/')
+                  ? activeSection === link.id 
+                  : (pathname === link.href && activeSection === '');
+
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`block px-4 py-3 rounded-xl font-medium text-center transition-all ${
+                      isActive 
+                        ? 'bg-ieee-blue text-white shadow-md' 
+                        : 'text-ieee-dark hover:bg-white/50 active:scale-95'
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
           </div>
         </div>
       </nav>

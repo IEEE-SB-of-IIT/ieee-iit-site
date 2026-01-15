@@ -1,78 +1,106 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import { Member } from '@/lib/types';
-import Image from 'next/image';
-import { CheckCircle2, Plus, User, Layers } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 
 type Props = {
   member: Member;
 };
 
 const TeamMemberCard: React.FC<Props> = ({ member }) => {
+  const [fontSize, setFontSize] = useState(20); // Base text-xl is 20px
+  const nameRef = useRef<HTMLHeadingElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const updateScale = () => {
+      if (nameRef.current && containerRef.current) {
+        // Reset to base size to measure true scrollWidth
+        nameRef.current.style.fontSize = '20px';
+        const containerWidth = containerRef.current.clientWidth - 64; // p-8 is 32px on each side
+        const nameWidth = nameRef.current.scrollWidth;
+        
+        if (nameWidth > containerWidth && nameWidth > 0) {
+          const newSize = Math.max(12, 20 * (containerWidth / nameWidth));
+          setFontSize(newSize);
+        } else {
+          setFontSize(20);
+        }
+      }
+    };
+
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, [member.name]);
+
   return (
-    // Container: Reduced shadow, thick white border, rounded corners
-    <div className="group relative w-full max-w-[320px] aspect-[9/15.5] mx-auto rounded-[40px] overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,0.08)] border-[8px] border-white bg-gray-100">
-      
+    <div className="group relative w-full aspect-[3/4.5] mx-auto rounded-[32px] overflow-hidden shadow-lg border-3 border-white/80">
       {/* 1. Full Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src={member.image}
-          alt={member.name}
-          fill
-          className="object-cover"
-          priority
-        />
+      <img
+        src={member.image}
+        alt={member.name}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"
+      />
+
+      {/* 2. Dark Liquid Glass (Smoke Theme) */}
+      <div 
+        className="absolute inset-0 top-[20%] bg-black/30 backdrop-blur-[80px] backdrop-saturate-[1.8] border-t border-black/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]
+                   before:absolute before:inset-0 before:bg-gradient-to-b before:from-black/10 before:to-transparent before:opacity-50 before:pointer-events-none"
+        style={{
+          maskImage: 'linear-gradient(to top, black 0%, black 25%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to top, black 0%, black 25%, transparent 100%)'
+        }}
+      >
+        {/* Grain Overlay for Realism */}
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        
+        {/* Specular Edge Highlight */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/40 to-transparent" />
       </div>
 
-      {/* 2. Seamless Glass Content Area */}
-      {/* We position this at the bottom, but let the gradient stretch upwards */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        
-        {/* The Glass Pane:
-            - bg-gradient-to-t: Creates the fade from opaque bottom to transparent top.
-            - from-slate-100/90 to-transparent: The color gradient.
-            - backdrop-blur-xl: Applies the frosted effect.
-            - pt-12: Added top padding so the text starts deeper in the faded area.
-        */}
-        <div className="flex flex-col gap-4 px-6 pb-8 pt-16 bg-gradient-to-t from-slate-100/95 via-slate-100/50 to-transparent backdrop-blur-xl">
-          
-          {/* Name & Badge */}
+      {/* 3. Floating Social Pill (Top Right) */}
+      <div className="absolute top-6 right-6 z-30 flex flex-col gap-2">
+        {member.email && (
+          <a
+            href={`mailto:${member.email}`}
+            className="p-2.5 bg-black/50 opacity-80 hover:opacity-100 hover:bg-black/40 text-white rounded-xl border border-white/20 backdrop-blur-2xl transition-all duration-300 shadow-xl"
+            aria-label="Email"
+          >
+            <Mail className="w-4 h-4" strokeWidth={2} />
+          </a>
+        )}
+        {member.linkedin && (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 bg-black/50 opacity-80 hover:opacity-100 hover:bg-black/40 text-white rounded-xl border border-white/20 backdrop-blur-2xl transition-all duration-300 shadow-xl"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-4 h-4" strokeWidth={2} />
+          </a>
+        )}
+      </div>
+
+      {/* 4. Text and Details Content Layer */}
+      <div ref={containerRef} className="absolute bottom-0 left-0 right-0 p-8 z-20">
+        <div className="flex flex-col gap-4">
           <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <h3 className="text-[22px] font-extrabold text-gray-900 leading-tight">
+            <p className="text-sm font-medium text-white/80 uppercase tracking-widest truncate">
+              {member.role}
+            </p>
+            <div className="min-h-[1.75rem] flex items-center">
+              <h3 
+                ref={nameRef}
+                className="font-bold text-white leading-tight tracking-tight drop-shadow-md whitespace-nowrap"
+                style={{ fontSize: `${fontSize}px` }}
+              >
                 {member.name}
               </h3>
-              {/* Using fill-current so the checkmark inherits the text color, and text-green-600 for the outer circle */}
-              <CheckCircle2 className="w-5 h-5 text-green-500 fill-current" />
             </div>
-            
-            {/* Role / Description */}
-            <p className="text-[15px] font-medium text-gray-600 leading-snug pr-4">
-              {member.role || "Product Designer who focuses on simplicity & usability."}
-            </p>
           </div>
-
-          {/* Bottom Row: Stats & Action Button */}
-          <div className="flex items-end justify-between pt-2">
-            
-            {/* Stats */}
-            <div className="flex items-center gap-5 text-gray-700 mb-1">
-              <div className="flex items-center gap-1.5">
-                <User className="w-[18px] h-[18px] opacity-70" />
-                <span className="text-[15px] font-bold">312</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Layers className="w-[18px] h-[18px] opacity-70" />
-                <span className="text-[15px] font-bold">48</span>
-              </div>
-            </div>
-
-            {/* Follow Button - Exact style from image */}
-            <button className="flex items-center gap-2 px-6 py-3 bg-white hover:bg-[#f8f8f8] text-gray-900 rounded-[20px] shadow-sm hover:shadow-md transition-all duration-200 active:scale-95">
-              <span className="text-[15px] font-extrabold">Follow</span>
-              <Plus className="w-5 h-5 stroke-[2.5]" />
-            </button>
-          </div>
-
         </div>
       </div>
     </div>
