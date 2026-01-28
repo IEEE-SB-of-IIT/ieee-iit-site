@@ -8,7 +8,6 @@ html,
 body {
   width: 100dvw;
   overflow-x: hidden;
-  background-color: #E7F0FA;
   color: #0D2440;
   scroll-behavior: smooth;
   font-family: var(--font-poppins), sans-serif;

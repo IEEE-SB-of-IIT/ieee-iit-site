@@ -6,7 +6,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-ieee-lightest text-ieee-dark font-sans selection:bg-ieee-light/30 overflow-x-hidden">
+    <div className="min-h-screen text-ieee-dark font-sans selection:bg-ieee-light/30 overflow-x-hidden">
       <main>
         <Hero />
         <About />
