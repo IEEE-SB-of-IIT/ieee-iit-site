@@ -10,7 +10,7 @@ const Projects = () => {
     const [p1, p2, p3, p4, p5] = projectsData;
 
   return (
-    <section id="projects" className="relative">
+    <section id="projects" className="relative" data-reveal>
       <Container>
         <SectionHeader title="Flagship Projects" />
 

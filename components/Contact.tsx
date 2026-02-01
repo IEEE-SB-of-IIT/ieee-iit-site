@@ -35,7 +35,7 @@ const Contact = () => {
   const inputClassName = "w-full px-4 py-4 bg-white/40 border border-white/50 rounded-xl text-ieee-dark placeholder:text-ieee-dark/40 focus:outline-none focus:ring-2 focus:ring-ieee-medium/20 focus:border-ieee-medium transition-all"
 
   return (
-    <section id="contact" className="pb-32 bg-gradient-to-b from-transparent to-ieee-light/5">
+    <section id="contact" className="pb-32 bg-gradient-to-b from-transparent to-ieee-light/5" data-reveal>
       <Container>
         <SectionHeader title="Get in Touch" />
         

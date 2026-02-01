@@ -6,7 +6,7 @@ import { aboutData } from '@/constants'
 
 const About = () => {
   return (
-    <section id="about" className="relative">
+    <section id="about" className="relative" data-reveal>
       <Container>
         <SectionHeader title="About Us" />
 

@@ -3,6 +3,7 @@ import { Poppins, Space_Grotesk } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackgroundGlow from "@/components/BackgroundGlow";
+import ScrollReveal from "@/components/ScrollReveal";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -33,6 +34,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${spaceGrotesk.variable} antialiased`}
       >
         <BackgroundGlow />
+        <ScrollReveal />
         <Navbar />
         {children}
         <Footer />
