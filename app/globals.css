@@ -1,24 +1,82 @@
 @import "tailwindcss";
 
 :root {
-  --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
+  --gradient: conic-gradient(
+    from 120deg,
+    rgba(0, 98, 155, 0.2),
+    rgba(46, 94, 153, 0.35),
+    rgba(13, 36, 64, 0.25),
+    rgba(46, 94, 153, 0.35),
+    rgba(0, 98, 155, 0.2)
+  );
+  --bg-base: #eff5ff;
+  --bg-soft: #f7faff;
+  --text-primary: #0b1a2b;
+  --text-muted: #2e3a4d;
+  --glass: rgba(255, 255, 255, 0.12);
+  --glass-strong: rgba(255, 255, 255, 0.22);
+  --stroke: rgba(255, 255, 255, 0.45);
 }
 
 html,
 body {
   width: 100dvw;
+  min-height: 100%;
   overflow-x: hidden;
-  color: #0D2440;
+  color: var(--text-primary);
   scroll-behavior: smooth;
   font-family: var(--font-poppins), sans-serif;
+  background-color: var(--bg-base);
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -3;
+  background:
+    radial-gradient(35% 35% at 10% 10%, rgba(0, 98, 155, 0.22) 0%, transparent 60%),
+    radial-gradient(40% 40% at 90% 20%, rgba(46, 94, 153, 0.22) 0%, transparent 60%),
+    radial-gradient(30% 30% at 50% 85%, rgba(13, 36, 64, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(13, 36, 64, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 36, 64, 0.08) 1px, transparent 1px);
+  background-size: 90px 90px;
+  opacity: 0.2;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
 }
 
 section {
   width: 100dvw;
 }
 
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  letter-spacing: -0.02em;
+}
+
 @theme {
   --font-sans: var(--font-poppins), "Poppins", sans-serif;
+  --font-display: var(--font-space-grotesk), "Space Grotesk", sans-serif;
   --color-white-50: #d9ecff;
   --color-black-50: #1c1c21;
   --color-black-100: #0e0e10;
@@ -58,6 +116,77 @@ section {
 
   .mt-responsive {
     @apply xl:mt-20 md:mt-0 mt-40;
+  }
+
+  .glass-pill {
+    @apply relative inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold text-ieee-medium border border-white/50 bg-white/15 backdrop-blur-2xl transition-all duration-300;
+    box-shadow: 0 12px 30px rgba(0, 98, 155, 0.18);
+  }
+
+  .glass-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(120% 120% at 0% 0%, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .glass-pill:hover::before {
+    opacity: 1;
+  }
+
+  .glass-surface {
+    @apply relative overflow-hidden rounded-2xl border border-white/40 bg-white/12 backdrop-blur-2xl transition-all duration-500;
+    box-shadow: 0 20px 60px rgba(13, 36, 64, 0.08);
+  }
+
+  .glass-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(120% 120% at 0% 0%, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .glass-surface:hover::before {
+    opacity: 1;
+  }
+
+  .glass-surface:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 80px rgba(0, 98, 155, 0.2);
+  }
+
+  .glass-bento {
+    @apply relative overflow-hidden rounded-3xl border border-white/30 bg-white/10 backdrop-blur-2xl transition-all duration-500;
+    box-shadow: 0 25px 80px rgba(13, 36, 64, 0.12);
+  }
+
+  .glass-bento::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(140% 140% at 0% 0%, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .glass-bento:hover::before {
+    opacity: 1;
+  }
+
+  .glass-bento:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 35px 100px rgba(0, 98, 155, 0.25);
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-ieee-dark via-ieee-medium to-ieee-blue;
   }
 
   /* General Grids */

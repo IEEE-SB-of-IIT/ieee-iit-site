@@ -11,15 +11,14 @@ const Badge = ({ children, className, style }: BadgeProps) => {
   return (
     <div 
       className={cn(
-        "inline-block px-4 py-1.5 rounded-full",
-        "bg-white/10 backdrop-blur-md border border-white/20",
-        "text-ieee-medium font-semibold text-sm tracking-wider",
-        "shadow-sm transition-all duration-300",
+        "glass-pill",
         className
       )}
       style={style}
     >
-      {children}
+      <div className="relative z-10 w-full">
+        {children}
+      </div>
     </div>
   );
 };

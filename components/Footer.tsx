@@ -4,7 +4,8 @@ import { FaWhatsapp, FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaTiktok
 
 const Footer = () => {
   return (
-    <footer className="bg-white/30 backdrop-blur-md border border-white/20 text-ieee-gray pt-10 pb-6">
+    <footer className="relative overflow-hidden bg-white/20 backdrop-blur-2xl border border-white/40 text-ieee-gray pt-10 pb-6 shadow-[0_25px_80px_rgba(15,23,42,0.15)]">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-cyan/70 to-transparent"></div>
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="text-center md:text-left">
@@ -20,7 +21,7 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className="border-t border-ieee-gray/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div className="border-t border-white/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-ieee-gray/70">
             <div className="flex gap-6">
                 <a href="#" className="hover:text-black transition-colors">About</a>
                 <a href="#" className="hover:text-black transition-colors">Projects</a>

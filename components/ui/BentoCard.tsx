@@ -10,7 +10,7 @@ const BentoCard = ({ children, className }: BentoCardProps) => {
   return (
     <div
       className={cn(
-        "relative rounded-3xl overflow-hidden group shadow-lg bg-white/10 backdrop-blur-md border border-white/30 p-2",
+        "glass-bento p-2 group",
         className
       )}
     >

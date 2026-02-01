@@ -94,12 +94,13 @@ const Navbar = () => {
       </header>
 
       <nav
-        className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-in-out ${
+        className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-in-out group relative overflow-hidden ${
           isScrolled
-            ? 'top-4 w-[90%] max-w-xl rounded-full bg-ieee-lightest/50 backdrop-blur-xl shadow-lg border border-white/40 py-2'
-            : 'top-20 w-[95%] max-w-3xl rounded-2xl bg-ieee-lightest/50 backdrop-blur-sm border border-white/20 py-3'
+            ? 'top-4 w-[90%] max-w-xl rounded-full bg-white/30 backdrop-blur-2xl shadow-[0_18px_60px_rgba(0,98,155,0.25)] border border-white/60 py-2'
+            : 'top-20 w-[95%] max-w-3xl rounded-2xl bg-white/20 backdrop-blur-xl border border-white/40 shadow-[0_10px_40px_rgba(0,98,155,0.18)] py-3'
         }`}
       >
+        <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-60"></span>
         <div className="px-6 flex justify-between md:justify-center items-center relative">
           
           <span className={`md:hidden font-medium text-ieee-dark text-sm ${isScrolled ? 'opacity-100' : 'opacity-80'}`}>
@@ -123,11 +124,11 @@ const Navbar = () => {
                   }`}
                 >
                   {isActive && (
-                    <span className="absolute inset-0 bg-ieee-blue rounded-full shadow-md -z-10"></span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-ieee-dark via-ieee-medium to-ieee-blue rounded-full shadow-md -z-10"></span>
                   )}
                   
                   {!isActive && (
-                    <span className="absolute inset-0 bg-ieee-blue/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-ieee-dark/10 via-ieee-medium/20 to-ieee-blue/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></span>
                   )}
                   
                   {link.name}
