@@ -8,7 +8,7 @@ import Badge from './ui/Badge';
 const Hero = () => {
   return (
     <>
-      <section id="home" className="relative w-full min-h-screen pt-38 pb-20 px-4 flex flex-col items-center justify-center overflow-hidden">
+      <section id="home" className="relative w-full min-h-screen pt-20 pb-20 px-4 flex flex-col items-center justify-center overflow-hidden">
         
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
           <div className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-ieee-light/10 rounded-full blur-[100px]" />
@@ -52,14 +52,19 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
-              <button className="px-8 py-4 bg-gradient-to-r from-ieee-medium to-ieee-light text-white rounded-xl shadow-lg shadow-ieee-medium/30 font-semibold hover:shadow-xl hover:scale-102 transition-all duration-300 flex items-center gap-2 hover:cursor-pointer">
-                Claim Your Spot
-                <ArrowRight size={20} />
+              <button className="group relative overflow-hidden px-8 py-4 rounded-[18px] border border-ieee-light/50 bg-ieee-blue text-ieee-lightest font-semibold transition-all duration-300 shadow-[0_18px_50px_rgba(0,98,155,0.35)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(0,98,155,0.45)]">
+                <span className="absolute -right-10 top-1/2 h-20 w-20 -translate-y-1/2 rounded-full bg-ieee-light/30 blur-2xl transition-all duration-500 group-hover:-right-2 group-hover:scale-125"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-ieee-dark via-ieee-medium to-ieee-blue opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+                <span className="relative z-10 flex items-center gap-3">
+                  Claim Your Spot
+                  <ArrowRight size={20} />
+                </span>
               </button>
             </div>
           </div>
 
         </Container>
+
       </section>
 
       <div className="w-full flex justify-center -mt-10">

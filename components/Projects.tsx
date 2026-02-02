@@ -143,9 +143,15 @@ const Projects = () => {
         </div>
 
         <div className="flex justify-center mt-10">
-          <button className="px-8 py-4 bg-gradient-to-r from-ieee-medium to-ieee-light text-white rounded-xl shadow-lg shadow-ieee-medium/30 font-semibold hover:shadow-xl hover:scale-102 transition-all duration-300 flex items-center gap-2 hover:cursor-pointer">
-            <span>View More Projects</span>
-              <ArrowRight size={20} />
+          <button className="group relative overflow-hidden px-8 py-4 rounded-[22px] border border-ieee-light/60 bg-ieee-lightest/70 text-ieee-dark font-semibold transition-all duration-300 shadow-[0_16px_40px_rgba(0,98,155,0.18)] hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(0,98,155,0.28)]">
+            <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,98,155,0.25),transparent_55%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+            <span className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-ieee-blue/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+            <span className="relative z-10 flex items-center gap-3">
+              View More Projects
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ieee-light/60 bg-ieee-lightest/80 text-ieee-blue transition-transform duration-300 group-hover:translate-x-1">
+                <ArrowRight size={18} />
+              </span>
+            </span>
           </button>
         </div>
       </Container>
