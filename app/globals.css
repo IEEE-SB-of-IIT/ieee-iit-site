@@ -1,14 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --gradient: conic-gradient(
-    from 120deg,
-    rgba(0, 98, 155, 0.2),
-    rgba(46, 94, 153, 0.35),
-    rgba(13, 36, 64, 0.25),
-    rgba(46, 94, 153, 0.35),
-    rgba(0, 98, 155, 0.2)
-  );
+  --gradient: conic-gradient(from 120deg,
+      rgba(0, 98, 155, 0.2),
+      rgba(46, 94, 153, 0.35),
+      rgba(13, 36, 64, 0.25),
+      rgba(46, 94, 153, 0.35),
+      rgba(0, 98, 155, 0.2));
   --bg-base: #eff5ff;
   --bg-soft: #f7faff;
   --text-primary: #0b1a2b;
@@ -51,13 +49,12 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: 100;
   background-image:
-    linear-gradient(rgba(13, 36, 64, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 36, 64, 0.08) 1px, transparent 1px);
-  background-size: 90px 90px;
-  opacity: 0.2;
-  mix-blend-mode: soft-light;
+    linear-gradient(rgba(0, 98, 155, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 98, 155, 0.08) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.8;
   pointer-events: none;
 }
 
@@ -96,6 +93,7 @@ h4,
   .flex-center {
     @apply flex justify-center items-center;
   }
+
   .flex-col-center {
     @apply flex flex-col justify-center items-center;
   }
@@ -303,9 +301,11 @@ h4,
 
   .hero-text {
     @apply flex flex-col justify-center md:text-[60px] text-[30px] font-semibold relative z-10 pointer-events-none;
+
     img {
       @apply size-8 md:size-10 object-contain;
     }
+
     .slide {
       @apply absolute pt-0 px-2 md:px-5 py-[30px] h-[48px] md:h-[78px] md:translate-y-1 translate-y-0 overflow-hidden;
     }
@@ -427,19 +427,15 @@ h4,
     @apply px-4 py-4 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden;
 
     .bg-circle {
-      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 
-        w-[120%] h-[120%] group-hover:size-10 group-hover:right-10
-        rounded-full bg-white-50 transition-all duration-500;
+      @apply absolute -right-10 origin-center top-1/2 -translate-y-1/2 w-[120%] h-[120%] group-hover:size-10 group-hover:right-10 rounded-full bg-white-50 transition-all duration-500;
     }
 
     .text {
-      @apply uppercase md:text-lg text-black transition-all duration-500
-        group-hover:text-white-50 group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
+      @apply uppercase md:text-lg text-black transition-all duration-500 group-hover:text-white-50 group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
     }
 
     .arrow-wrapper {
-      @apply group-hover:bg-white-50 size-10 rounded-full absolute right-10 top-1/2 
-        -translate-y-1/2 flex justify-center items-center overflow-hidden;
+      @apply group-hover:bg-white-50 size-10 rounded-full absolute right-10 top-1/2 -translate-y-1/2 flex justify-center items-center overflow-hidden;
 
       img {
         @apply size-5 xl:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
@@ -551,32 +547,27 @@ h4,
 
 .gradient-line {
   width: 2px;
-  background: linear-gradient(
-    0deg,
-    rgba(69, 222, 196, 0) 0%,
-    #62e0ff 25%,
-    #52aeff 37.51%,
-    #fd5c79 62.83%,
-    #6d45ce 92.91%
-  );
+  background: linear-gradient(0deg,
+      rgba(69, 222, 196, 0) 0%,
+      #62e0ff 25%,
+      #52aeff 37.51%,
+      #fd5c79 62.83%,
+      #6d45ce 92.91%);
 }
 
 .gradient-edge:nth-of-type(1) {
   left: 0;
   background: rgb(0, 0, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(255, 255, 255, 0) 100%);
 }
+
 .gradient-edge:nth-of-type(2) {
   right: 0;
-  background: linear-gradient(
-    -90deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(-90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(255, 255, 255, 0) 100%);
 }
 
 
@@ -602,12 +593,10 @@ h4,
   background: var(--gradient);
   background-attachment: fixed;
   mask: linear-gradient(#0000, #0000),
-    conic-gradient(
-      from calc((var(--start) - 15) * 1deg),
+    conic-gradient(from calc((var(--start) - 15) * 1deg),
       #ffffff1f 0deg,
       white,
-      #ffffff00 100deg
-    );
+      #ffffff00 100deg);
   mask-composite: intersect;
   mask-clip: padding-box, border-box;
   opacity: 0;
@@ -634,13 +623,16 @@ h4,
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #e7f0fa;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #7ba4d0;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #2e5e99;
 }
@@ -663,4 +655,59 @@ html.reveal-ready [data-reveal].reveal-visible {
     transform: none;
     transition: none;
   }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
 }

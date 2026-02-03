@@ -1,91 +1,97 @@
-import React from 'react'
-import { ArrowRight } from 'lucide-react';
-import { counterItems } from '@/constants';
-import Container from './ui/Container';
+"use client";
 
-import Badge from './ui/Badge';
+import React from "react";
+import { ArrowUpRight } from "lucide-react";
+import Container from "./ui/Container";
+import Link from "next/link";
 
 const Hero = () => {
   return (
-    <>
-      <section id="home" className="relative w-full min-h-screen pt-20 pb-20 px-4 flex flex-col items-center justify-center overflow-hidden">
-        
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-          <div className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-ieee-light/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-ieee-medium/10 rounded-full blur-[80px]" />
-        </div>
-
-        <div className="hidden lg:flex w-[600px] h-[600px] rounded-full overflow-hidden absolute left-[-150px] top-[50%] -translate-y-1/2 z-0 opacity-15 pointer-events-none">
-          <img 
-            src="images/logos/SB_globe.png" 
-            alt="Global Technology Watermark" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-ieee-lightest via-transparent to-transparent mix-blend-overlay"></div>
-        </div>
-
-        <Container className="flex flex-col lg:flex-row items-center relative z-10 gap-18">
-          
-          <div className="flex-1 w-full max-w-lg lg:max-w-xl relative h-[400px] lg:h-[600px] flex items-center justify-center order-2 lg:order-1">
-
-            <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-120 animate-bounce-slow z-10">
-              <img src="/images/image.png" alt="Hero-image-1" className='rounded-xl'/>
-            </div>
-            <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-100 animate-bounce-slow z-10">
-              <img src="/images/image.png" alt="Hero-image-1" className='rounded-xl'/>
-            </div>
-          </div>
-
-          <div className="flex-1 text-center lg:text-left space-y-6 order-1 lg:order-2 -mt-5">
-            <Badge className='border-2 border-ieee-blue/60'>
-              Advancing Technology for Humanity
-            </Badge>
-            
-            <h1 className="text-5xl lg:text-7xl font-bold text-ieee-gray leading-[1.15] tracking-tight">
-              IEEE
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-ieee-medium to-ieee-blue"> Student <br/> Branch </span>
-              of IIT 
-            </h1>
-
-            <p className="text-ieee-dark/70 text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Join a community of innovators. We foster technological excellence through industry collaboration, and impactful projects that shape the future.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
-              <button className="group relative overflow-hidden px-8 py-4 rounded-[18px] border border-ieee-light/50 bg-ieee-blue text-ieee-lightest font-semibold transition-all duration-300 shadow-[0_18px_50px_rgba(0,98,155,0.35)] hover:-translate-y-1 hover:shadow-[0_28px_70px_rgba(0,98,155,0.45)]">
-                <span className="absolute -right-10 top-1/2 h-20 w-20 -translate-y-1/2 rounded-full bg-ieee-light/30 blur-2xl transition-all duration-500 group-hover:-right-2 group-hover:scale-125"></span>
-                <span className="absolute inset-0 bg-gradient-to-r from-ieee-dark via-ieee-medium to-ieee-blue opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
-                <span className="relative z-10 flex items-center gap-3">
-                  Claim Your Spot
-                  <ArrowRight size={20} />
-                </span>
-              </button>
-            </div>
-          </div>
-
-        </Container>
-
-      </section>
-
-      <div className="w-full flex justify-center -mt-10">
-        <div className="flex flex-wrap justify-center gap-6 px-4">
-          {counterItems.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <Badge key={index} className="uppercase bg-white/10 backdrop-blur-xl border border-white/30 p-4 rounded-xl shadow-md hover:scale-101 transition-transform duration-300 min-w-[200px]">
-                  <div className="flex items-center gap-3 mb-2">
-                      {Icon && <Icon size={18} className="text-ieee-gray" />}
-                      <span className="text-ieee-gray font-semibold text-sm">{item.label}</span>
-                  </div>
-                  <span className="text-ieee-blue font-bold text-2xl ml-8">{item.value}{item.suffix}</span>
-              </Badge>
-            );
-          })}
-        </div>
+    <section
+      id="home"
+      className="relative w-full min-h-screen pt-24 pb-20 flex items-center overflow-hidden bg-white"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-ieee-blue/20 rounded-full blur-[150px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-ieee-medium/20 rounded-full blur-[120px]" />
+        <div className="absolute top-[30%] left-[40%] w-[400px] h-[400px] bg-ieee-light/15 rounded-full blur-[100px]" />
       </div>
 
-    </>
-  );
-}
+      <Container className="relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 items-center">
 
-export default Hero
+          {/* Left Content - Bold Typography */}
+          <div className="lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left">
+
+            {/* Main Heading */}
+            <div className="space-y-2">
+              <h1 className="font-display font-bold leading-[0.9] tracking-tighter text-ieee-dark">
+                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+                  IEEE <span className="text-ieee-blue">Student</span>
+                </span>
+                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+                  Branch
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl lg:text-3xl font-display font-semibold text-ieee-dark/60 tracking-tight">
+                of Informatics Institute of Technology
+              </p>
+            </div>
+
+            {/* Subtitle */}
+            <div className="mt-8 lg:mt-10 max-w-lg">
+              <p className="text-ieee-dark/70 text-lg lg:text-xl font-medium leading-relaxed">
+                Innovating for the future, one project at a time. Join the global community of technology leaders at IIT.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 mt-10">
+              <Link href="#about">
+                <button className="group flex items-center gap-3 px-8 py-4 bg-ieee-dark text-white font-semibold uppercase tracking-wider rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-ieee-blue">
+                  EXPLORE US
+                  <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={20} />
+                </button>
+              </Link>
+
+              <Link href="#contact">
+                <button className="group flex items-center gap-2 px-8 py-4 text-ieee-dark font-semibold uppercase tracking-wider border-b-2 border-ieee-blue hover:text-ieee-blue transition-colors">
+                  GET IN TOUCH
+                  <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
+                </button>
+              </Link>
+            </div>
+
+            {/* Tag Pills */}
+            <div className="flex flex-wrap gap-3 mt-10">
+              {["INNOVATE", "COLLABORATE", "LEAD", "INSPIRE"].map((tag, i) => (
+                <div key={i} className="px-5 py-2 rounded-full border border-ieee-dark/20 bg-ieee-lightest hover:bg-ieee-light/30 transition-colors text-xs font-semibold tracking-wider text-ieee-dark/80">
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Visual */}
+          <div className="lg:w-[45%] relative flex justify-center items-center">
+            {/* Glowing Ring Behind Globe */}
+            <div className="absolute w-[90%] aspect-square rounded-full border border-ieee-blue/20 animate-pulse" />
+            <div className="absolute w-[80%] aspect-square rounded-full border border-ieee-blue/10" />
+
+            {/* Globe Image */}
+            <div className="relative z-10 w-[85%] max-w-[550px] aspect-square animate-float-slow">
+              <img
+                src="/images/logos/SB_globe.png"
+                alt="IEEE Student Branch Globe"
+                className="w-full h-full object-contain drop-shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default Hero;

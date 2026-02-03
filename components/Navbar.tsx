@@ -1,9 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -13,7 +14,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -28,7 +29,7 @@ const Navbar = () => {
     const sections = ['about', 'projects', 'contact'];
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -60% 0px', // Detect when section is in upper-mid viewport
+      rootMargin: '-20% 0px -60% 0px',
       threshold: 0,
     };
 
@@ -47,7 +48,6 @@ const Navbar = () => {
       if (element) observer.observe(element);
     });
 
-    // Special case for top of page (Home)
     const handleScroll = () => {
       if (window.scrollY < 100) {
         setActiveSection('');
@@ -70,111 +70,127 @@ const Navbar = () => {
   ];
 
   return (
-   <>
-      <header className="absolute top-0 left-0 w-full z-50 py-4 transition-opacity duration-300">
+    <>
+      {/* Top Header with Logos */}
+      <header className={cn(
+        "fixed top-0 left-0 w-full z-50 transition-all duration-500",
+        isScrolled
+          ? "py-2 bg-ieee-dark/95 backdrop-blur-xl shadow-lg"
+          : "py-4 bg-white/80 backdrop-blur-md shadow-sm"
+      )}>
         <div className="container mx-auto px-6 max-w-7xl flex justify-between items-center">
-          
-          <div className="flex items-center gap-3 md:gap-4">
-             <div className="flex flex-col justify-center">
-               <img src="/images/logos/SB.png" alt="SB Logo" className="h-6 md:h-9 w-auto"/>
-             </div>
-          </div>
 
-          <div className="opacity-90 hover:opacity-100 transition-opacity">
-            <Link href="https://www.ieee.org/" className='hover:cursor-pointer'>
-            <img 
-              src="/images/logos/IEEE.png" 
-              alt="IEEE Logo" 
-              className="h-6 md:h-9 w-auto"
+          {/* Left Logo */}
+          <Link href="/" className="flex items-center gap-3">
+            <img
+              src="/images/logos/SB.png"
+              alt="IEEE SB IIT Logo"
+              className={cn(
+                "transition-all duration-300",
+                isScrolled ? "h-8 brightness-0 invert" : "h-10"
+              )}
             />
-            </Link>
-          </div>
+          </Link>
 
-        </div>
-      </header>
-
-      <nav
-        className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-in-out group relative overflow-hidden ${
-          isScrolled
-            ? 'top-4 w-[90%] max-w-xl rounded-full bg-white/30 backdrop-blur-2xl shadow-[0_18px_60px_rgba(0,98,155,0.25)] border border-white/60 py-2'
-            : 'top-20 w-[95%] max-w-3xl rounded-2xl bg-white/20 backdrop-blur-xl border border-white/40 shadow-[0_10px_40px_rgba(0,98,155,0.18)] py-3'
-        }`}
-      >
-        <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-60"></span>
-        <div className="px-6 flex justify-between md:justify-center items-center relative">
-          
-          <span className={`md:hidden font-medium text-ieee-dark text-sm ${isScrolled ? 'opacity-100' : 'opacity-80'}`}>
-            Menu
-          </span>
-
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => {
               const isActive = (link.id && pathname === '/')
-                ? activeSection === link.id 
+                ? activeSection === link.id
                 : (pathname === link.href && activeSection === '');
-              
+
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden group ${
-                    isActive 
-                      ? 'text-white' 
-                      : 'text-ieee-dark hover:text-ieee-medium'
-                  }`}
+                  className={cn(
+                    "px-5 py-2 text-sm font-semibold uppercase tracking-wider transition-all duration-300 relative",
+                    isActive
+                      ? "text-ieee-blue"
+                      : isScrolled
+                        ? "text-white/80 hover:text-white"
+                        : "text-ieee-dark/80 hover:text-ieee-dark"
+                  )}
                 >
-                  {isActive && (
-                    <span className="absolute inset-0 bg-gradient-to-r from-ieee-dark via-ieee-medium to-ieee-blue rounded-full shadow-md -z-10"></span>
-                  )}
-                  
-                  {!isActive && (
-                    <span className="absolute inset-0 bg-gradient-to-r from-ieee-dark/10 via-ieee-medium/20 to-ieee-blue/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></span>
-                  )}
-                  
                   {link.name}
+                  {/* Active indicator line */}
+                  <span className={cn(
+                    "absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-ieee-blue transition-all duration-300",
+                    isActive ? "w-full" : "w-0"
+                  )} />
                 </Link>
               );
             })}
-          </div>
+          </nav>
 
-          <button 
-            className="md:hidden p-2 text-ieee-dark hover:bg-white/20 rounded-full transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Right Side - IEEE Logo & CTA */}
+          <div className="flex items-center gap-4">
+            <Link
+              href="https://www.ieee.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-80 hover:opacity-100 transition-opacity"
+            >
+              <img
+                src="/images/logos/IEEE.png"
+                alt="IEEE Logo"
+                className={cn(
+                  "transition-all duration-300",
+                  isScrolled ? "h-7 brightness-0 invert" : "h-9"
+                )}
+              />
+            </Link>
+
+            {/* Mobile Menu Button */}
+            <button
+              className={cn(
+                "md:hidden p-2 rounded-lg transition-colors",
+                isScrolled
+                  ? "text-white hover:bg-white/10"
+                  : "text-ieee-dark hover:bg-ieee-dark/10"
+              )}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
-        <div 
-           className={`md:hidden absolute top-full left-0 w-full mt-2 overflow-hidden transition-all duration-300 ease-in-out origin-top ${
-             isMobileMenuOpen ? 'max-h-96 opacity-100 scale-100' : 'max-h-0 opacity-0 scale-95'
-           }`}
+        {/* Mobile Menu */}
+        <div
+          className={cn(
+            "md:hidden absolute top-full left-0 w-full overflow-hidden transition-all duration-300 ease-out",
+            isMobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+          )}
         >
-          <div className="bg-ieee-lightest/95 backdrop-blur-2xl border border-white/50 rounded-2xl shadow-xl p-2 mx-2 flex flex-col gap-1">
-             {navLinks.map((link) => {
+          <div className="bg-ieee-dark/98 backdrop-blur-xl border-t border-white/10 p-4">
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link) => {
                 const isActive = (link.id && pathname === '/')
-                  ? activeSection === link.id 
+                  ? activeSection === link.id
                   : (pathname === link.href && activeSection === '');
 
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`block px-4 py-3 rounded-xl font-medium text-center transition-all ${
-                      isActive 
-                        ? 'bg-ieee-blue text-white shadow-md' 
-                        : 'text-ieee-dark hover:bg-white/50 active:scale-95'
-                    }`}
+                    className={cn(
+                      "px-4 py-3 rounded-xl font-semibold uppercase tracking-wider text-sm transition-all",
+                      isActive
+                        ? "bg-ieee-blue text-white"
+                        : "text-white/80 hover:bg-white/10 hover:text-white"
+                    )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}
                   </Link>
                 );
               })}
+            </div>
           </div>
         </div>
-      </nav>
+      </header>
     </>
   )
 }
