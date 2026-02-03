@@ -16,7 +16,7 @@ const page = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-ieee-dark text-white rounded-full mb-8">
               <span className="w-2 h-2 bg-ieee-blue rounded-full animate-pulse" />
-              <span className="text-sm font-semibold tracking-wider">TEAM 2024/25</span>
+              <span className="text-sm font-semibold tracking-wider">TEAM 2026/27</span>
             </div>
 
             <h1 className="font-display font-bold leading-[0.95] tracking-tighter text-ieee-dark text-4xl md:text-5xl lg:text-6xl">

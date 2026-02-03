@@ -12,12 +12,12 @@ const Footer = () => {
                 <img src="/images/logos/sb.png" alt="SB Logo" className='w-75 mb-2'/>
             </div>
             <div className="flex gap-2">
-                <a href="#" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><Facebook size={18} className="text-gray-600 hover:text-gray-700" /></a>
-                <a href="#" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><FaWhatsapp size={18} className="text-gray-600 hover:text-gray-700" /></a>
-                <a href="#" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><FaInstagram size={18} className="text-gray-600 hover:text-gray-700" /></a>
-                <a href="#" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><Linkedin size={18} className="text-gray-600 hover:text-gray-700" /></a>
-                <a href="#" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><Youtube size={18} className="text-gray-600 hover:text-gray-700" /></a>
-                <a href="#" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><FaTiktok size={18} className="text-gray-600 hover:text-gray-700" /></a>
+                <a href="https://www.facebook.com/ieeeinformatics" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><Facebook size={18} className="text-gray-600 hover:text-gray-700" /></a>
+                <a href="https://whatsapp.com/channel/0029VaAQ5uq8kyyTdZYcEP1X" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><FaWhatsapp size={18} className="text-gray-600 hover:text-gray-700" /></a>
+                <a href="https://www.instagram.com/ieeeiit" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><FaInstagram size={18} className="text-gray-600 hover:text-gray-700" /></a>
+                <a href="https://www.linkedin.com/company/ieeesbiit/" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><Linkedin size={18} className="text-gray-600 hover:text-gray-700" /></a>
+                <a href="https://www.youtube.com/@ieeesbiit" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><Youtube size={18} className="text-gray-600 hover:text-gray-700" /></a>
+                <a href="https://www.tiktok.com/@ieeesb.iit" className="flex items-center justify-center hover:scale-101 rounded-full border-1 border-gray-500/50 hover:border-gray-500/70 p-2"><FaTiktok size={18} className="text-gray-600 hover:text-gray-700" /></a>
             </div>
         </div>
 

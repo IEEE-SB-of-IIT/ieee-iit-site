@@ -40,9 +40,9 @@ export const chapters: Chapters[] = [
     description:
       'Promotes innovation and excellence in computer science, software engineering, and information technology.',
     icon: 'CS.png',
-    instagram: 'https://instagram.com/ieee_cs_iit',
-    facebook: 'https://facebook.com/ieee_cs_iit',
-    linkedin: 'https://linkedin.com/ieee_cs_iit',
+    instagram: 'https://www.instagram.com/ieeecs_iit/',
+    facebook: 'https://www.facebook.com/IEEECSIIT',
+    linkedin: 'https://www.linkedin.com/company/ieee-computer-society-student-chapter-of-iit',
     color: '#FAA41B',
   },
   {
@@ -51,9 +51,9 @@ export const chapters: Chapters[] = [
     description:
       'Focuses on the advancement of robotics, automation, and intelligent systems through research and hands-on projects.',
     icon: 'RAS.png',
-    instagram: 'https://instagram.com/ieee_ras_iit',
-    facebook: 'https://facebook.com/ieee_ras_iit',
-    linkedin: 'https://linkedin.com/ieee_ras_iit',
+    instagram: 'https://www.instagram.com/ieeeras_iit',
+    facebook: 'https://www.facebook.com/ieeerasiit',
+    linkedin: 'https://www.linkedin.com/company/ieee-robotics-and-automation-society-of-iit',
     color: '#990A2C',
   },
   {
@@ -62,9 +62,9 @@ export const chapters: Chapters[] = [
     description:
       'Empowers and supports women engineers and students, fostering diversity, inclusion, and leadership in engineering.',
     icon: 'WIE.png',
-    instagram: 'https://instagram.com/ieee_wie_iit',
-    facebook: 'https://facebook.com/ieee_wie_iit',
-    linkedin: 'https://linkedin.com/ieee_wie_iit',
+    instagram: 'https://www.instagram.com/ieeewieiit/',
+    facebook: 'https://www.facebook.com/ieeewieiit/',
+    linkedin: 'https://www.linkedin.com/company/wie-affinity-group-of-iit/',
     color: '#742380',
   },
   {
@@ -73,9 +73,9 @@ export const chapters: Chapters[] = [
     description:
       'Advances the theory and application of neural networks, fuzzy systems, evolutionary computation, and AI.',
     icon: 'CIS.png',
-    instagram: 'https://instagram.com/ieee_cis_iit',
-    facebook: 'https://facebook.com/ieee_cis_iit',
-    linkedin: 'https://linkedin.com/ieee_cis_iit',
+    instagram: 'https://www.instagram.com/ieeecisiit',
+    facebook: 'https://www.facebook.com/ieeecisiit',
+    linkedin: 'https://www.linkedin.com/company/ieeecisiit',
     color: '#00AEEF',
   },
   {
@@ -84,9 +84,9 @@ export const chapters: Chapters[] = [
     description:
       'Bridges engineering and medicine to improve healthcare through biomedical innovation and research.',
     icon: 'EMBS.png',
-    instagram: 'https://instagram.com/ieee_embs_iit',
+    instagram: 'https://www.instagram.com/ieeeembs_iit/',
     facebook: 'https://facebook.com/ieee_embs_iit',
-    linkedin: 'https://linkedin.com/ieee_embs_iit',
+    linkedin: 'https://www.linkedin.com/company/ieeeembssbciit/',
     color: '#7A2A82',
   },
 ];
@@ -159,52 +159,52 @@ export const contactInfo = {
   address: "57 Ramakrishna Road, Colombo 06, Sri Lanka",
   email: "ieee@iit.ac.lk",
   socials: {
-    whatsapp: "https://wa.me/94112589362",
-    instagram: "https://www.instagram.com/ieeeiit/",
-    facebook: "https://www.facebook.com/IEEEIIT/",
-    youtube: "https://www.youtube.com/@IEEEIIT",
-    linkedin: "https://www.linkedin.com/company/ieee-iit/",
-    tiktok: "https://www.tiktok.com/@ieeeiit"
+    whatsapp: "https://whatsapp.com/channel/0029VaAQ5uq8kyyTdZYcEP1X",
+    instagram: "https://www.instagram.com/ieeeiit",
+    facebook: "https://www.facebook.com/ieeeinformatics",
+    youtube: "https://www.youtube.com/@ieeesbiit",
+    linkedin: "https://www.linkedin.com/company/ieeesbiit/",
+    tiktok: "https://www.tiktok.com/@ieeesb.iit"
   },
   socialLinks: [
     {
       name: "WhatsApp",
-      href: "https://wa.me/94112589362",
+      href: "https://whatsapp.com/channel/0029VaAQ5uq8kyyTdZYcEP1X",
       icon: FaWhatsapp,
       color: "#25D366",
       ariaLabel: "Chat on WhatsApp"
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/ieeeiit/",
+      href: "https://www.instagram.com/ieeeiit",
       icon: FaInstagram,
       color: "#E4405F",
       ariaLabel: "Follow on Instagram"
     },
     {
       name: "Facebook",
-      href: "https://www.facebook.com/IEEEIIT/",
+      href: "https://www.facebook.com/ieeeinformatics",
       icon: FaFacebookF,
       color: "#1877F2",
       ariaLabel: "Follow on Facebook"
     },
     {
       name: "YouTube",
-      href: "https://www.youtube.com/@IEEEIIT",
+      href: "https://www.youtube.com/@ieeesbiit",
       icon: FaYoutube,
       color: "#FF0000",
       ariaLabel: "Subscribe on YouTube"
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/ieee-iit/",
+      href: "https://www.linkedin.com/company/ieeesbiit/",
       icon: FaLinkedinIn,
       color: "#0A66C2",
       ariaLabel: "Follow on LinkedIn"
     },
     {
       name: "TikTok",
-      href: "https://www.tiktok.com/@ieeeiit",
+      href: "https://www.tiktok.com/@ieeesb.iit",
       icon: FaTiktok,
       color: "#000000",
       ariaLabel: "Follow on TikTok"
