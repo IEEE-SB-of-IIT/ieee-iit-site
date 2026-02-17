@@ -1,26 +1,25 @@
-'use client';
+"use client";
 
-import React, { useState, useLayoutEffect, useRef } from 'react';
-import { Member } from '@/lib/types';
-import { Mail, Linkedin } from 'lucide-react';
+import React, { useState, useLayoutEffect, useRef } from "react";
+import { Member } from "@/lib/types";
+import { Mail, Linkedin } from "lucide-react";
 
 type Props = {
   member: Member;
 };
 
 const TeamMemberCard: React.FC<Props> = ({ member }) => {
-  const [fontSize, setFontSize] = useState(20); // Base text-xl is 20px
+  const [fontSize, setFontSize] = useState(20);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const updateScale = () => {
       if (nameRef.current && containerRef.current) {
-        // Reset to base size to measure true scrollWidth
-        nameRef.current.style.fontSize = '20px';
-        const containerWidth = containerRef.current.clientWidth - 64; // p-8 is 32px on each side
+        nameRef.current.style.fontSize = "20px";
+        const containerWidth = containerRef.current.clientWidth - 64;
         const nameWidth = nameRef.current.scrollWidth;
-        
+
         if (nameWidth > containerWidth && nameWidth > 0) {
           const newSize = Math.max(12, 20 * (containerWidth / nameWidth));
           setFontSize(newSize);
@@ -31,8 +30,8 @@ const TeamMemberCard: React.FC<Props> = ({ member }) => {
     };
 
     updateScale();
-    window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
   }, [member.name]);
 
   return (
@@ -45,17 +44,19 @@ const TeamMemberCard: React.FC<Props> = ({ member }) => {
       />
 
       {/* 2. Dark Liquid Glass (Smoke Theme) */}
-      <div 
-        className="absolute inset-0 top-[20%] bg-black/30 backdrop-blur-[80px] backdrop-saturate-[1.8] border-t border-black/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]
+      <div
+        className="absolute inset-0 top-[20%] bg-black/40 backdrop-blur-[80px] backdrop-saturate-[1.8] border-t border-black/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]
                    before:absolute before:inset-0 before:bg-gradient-to-b before:from-black/10 before:to-transparent before:opacity-50 before:pointer-events-none"
         style={{
-          maskImage: 'linear-gradient(to top, black 0%, black 25%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to top, black 0%, black 25%, transparent 100%)'
+          maskImage:
+            "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
         }}
       >
         {/* Grain Overlay for Realism */}
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-        
+
         {/* Specular Edge Highlight */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/40 to-transparent" />
       </div>
@@ -85,14 +86,17 @@ const TeamMemberCard: React.FC<Props> = ({ member }) => {
       </div>
 
       {/* 4. Text and Details Content Layer */}
-      <div ref={containerRef} className="absolute bottom-0 left-0 right-0 p-8 z-20">
+      <div
+        ref={containerRef}
+        className="absolute bottom-0 left-0 right-0 p-8 z-20"
+      >
         <div className="flex flex-col gap-4">
           <div className="space-y-1">
             <p className="text-sm font-medium text-white/80 uppercase tracking-widest truncate">
               {member.role}
             </p>
             <div className="min-h-[1.75rem] flex items-center">
-              <h3 
+              <h3
                 ref={nameRef}
                 className="font-bold text-white leading-tight tracking-tight drop-shadow-md whitespace-nowrap"
                 style={{ fontSize: `${fontSize}px` }}

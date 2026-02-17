@@ -1,5 +1,5 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { cn } from "@/lib/utils";
 
 interface BadgeProps {
   children: React.ReactNode;
@@ -9,16 +9,17 @@ interface BadgeProps {
 
 const Badge = ({ children, className, style }: BadgeProps) => {
   return (
-    <div 
+    <div
       className={cn(
-        "glass-pill",
+        "inline-block px-4 py-1.5 rounded-full",
+        "bg-white/20 backdrop-blur-xs border border-white/20",
+        "text-ieee-medium font-semibold text-sm tracking-wider",
+        "shadow-sm transition-all duration-300",
         className
       )}
       style={style}
     >
-      <div className="relative z-10 w-full">
-        {children}
-      </div>
+      {children}
     </div>
   );
 };

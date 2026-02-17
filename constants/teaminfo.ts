@@ -44,7 +44,7 @@ export const executiveCommittee: Member[] = [
         image: "/images/team/vihan-mendis.jpg"
     },
     {
-        name: "Ramiru De Silva",
+        name: "Damithu Fonseka",
         role: "Chapter Coordinator",
         email: "david.lee@example.com",
         linkedin: "https://www.linkedin.com/in/davidlee/",
@@ -82,7 +82,7 @@ export const leads: Member[] = [
         image: "/images/team/vihan-mendis.jpg"
     },
     {
-        name: "Damithu Fonseka",
+        name: "Ramiru De Silva",
         role: "Program and Logistics",
         email: "olivia.wilson@example.com",
         linkedin: "https://www.linkedin.com/in/oliviawilson/",
