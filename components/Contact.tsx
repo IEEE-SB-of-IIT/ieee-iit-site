@@ -131,7 +131,7 @@ const Contact = () => {
                 Let’s Connect
               </h3>
               <p className="text-ieee-gray/60 font-medium text-md">
-                Have a question? We'd love to hear from you.
+                Have a question? We&apos;d love to hear from you.
               </p>
             </div>
 
