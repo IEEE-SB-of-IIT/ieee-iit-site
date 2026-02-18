@@ -4,13 +4,14 @@ import { counterItems } from "@/constants";
 import Container from "./ui/Container";
 
 import Badge from "./ui/Badge";
+import { cn } from "@/lib/utils";
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative w-full min-h-screen pt-38 px-4 flex flex-col items-center justify-center overflow-hidden"
+        className="relative w-full min-h-screen pt-24 md:pt-38 px-4 flex flex-col items-center justify-center overflow-hidden"
       >
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
           <div className="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] bg-ieee-light/10 rounded-full blur-[100px]" />
@@ -27,25 +28,25 @@ const Hero = () => {
         </div>
 
         <Container className="flex flex-col lg:flex-row items-center relative z-10 gap-18">
-          <div className="flex-1 w-full max-w-lg lg:max-w-xl relative h-[400px] lg:h-[600px] flex items-center justify-center order-2 lg:order-1">
-            <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-120 z-10">
+          <div className="hidden lg:flex flex-1 w-full max-w-lg lg:max-w-xl relative h-[600px] items-center justify-center order-2 lg:order-1">
+            <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[70%] md:w-120 z-10">
               <img
                 src="/images/image.png"
                 alt="Hero-image-1"
-                className="rounded-xl"
+                className="rounded-xl w-full h-auto"
               />
             </div>
-            <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-100 z-10">
+            <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[60%] md:w-100 z-10">
               <img
                 src="/images/image.png"
                 alt="Hero-image-1"
-                className="rounded-xl"
+                className="rounded-xl w-full h-auto"
               />
             </div>
           </div>
 
           <div className="flex-1 text-center lg:text-left space-y-6 order-1 lg:order-2 -mt-5">
-            <Badge className="border-2 border-ieee-blue/60">
+            <Badge className="border-2 border-ieee-blue/60 whitespace-nowrap text-[12px] sm:text-xs md:text-sm">
               Advancing Technology for Humanity
             </Badge>
 
@@ -64,6 +65,14 @@ const Hero = () => {
               the future.
             </p>
 
+            <div className="lg:hidden w-full max-w-md mx-auto py-4">
+              <img
+                src="/images/image.png"
+                alt="Hero Mobile"
+                className="rounded-2xl shadow-xl w-full h-auto border border-white/20"
+              />
+            </div>
+
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
               <button className="px-8 py-4 bg-gradient-to-r from-ieee-medium to-ieee-light text-white rounded-xl shadow-lg shadow-ieee-medium/30 font-semibold hover:shadow-xl hover:scale-102 transition-all duration-300 flex items-center gap-2 hover:cursor-pointer">
                 Claim Your Spot
@@ -74,22 +83,25 @@ const Hero = () => {
         </Container>
       </section>
 
-      <div className="w-full flex justify-center mt-10">
-        <div className="flex flex-wrap justify-center gap-6 px-4">
+      <div className="w-full flex justify-center mt-6 md:mt-10">
+        <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-3 md:gap-6 px-4 w-full md:w-auto max-w-sm md:max-w-none">
           {counterItems.map((item, index) => {
             const Icon = item.icon;
             return (
               <Badge
                 key={index}
-                className="uppercase p-5 rounded-2xl shadow-md hover:scale-101 transition-transform duration-300 min-w-[200px]"
+                className={cn(
+                  "uppercase p-3 md:p-5 rounded-2xl shadow-md hover:scale-101 transition-transform duration-300 min-w-0 md:min-w-[200px]",
+                  index === 4 ? "hidden md:flex flex-col" : "flex flex-col"
+                )}
               >
-                <div className="flex items-center gap-3 mb-2">
-                  {Icon && <Icon size={18} className="text-ieee-gray" />}
-                  <span className="text-ieee-gray font-semibold text-sm">
+                <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2 text-left">
+                  {Icon && <Icon size={16} className="text-ieee-gray shrink-0 md:size-[18px]" />}
+                  <span className="text-ieee-gray font-semibold text-[10px] md:text-sm line-clamp-1">
                     {item.label}
                   </span>
                 </div>
-                <span className="text-ieee-blue font-bold text-2xl ml-8">
+                <span className="text-ieee-blue font-bold text-lg md:text-2xl ml-6 md:ml-8 text-left">
                   {item.value}
                   {item.suffix}
                 </span>
