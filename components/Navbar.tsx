@@ -67,7 +67,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/#about", id: "about" },
-    { name: "Projects", href: "/projects" },
+    { name: "Projects", href: "/projects", id: "projects" },
     { name: "Contact", href: "/#contact", id: "contact" },
     { name: "Team", href: "/our-team" },
   ];
@@ -131,9 +131,11 @@ const Navbar = () => {
                       : "text-ieee-dark hover:text-ieee-medium"
                   }`}
                 >
-                  {isActive && (
-                    <span className="absolute inset-0 bg-ieee-blue rounded-full shadow-md -z-10"></span>
-                  )}
+                  <span
+                    className={`absolute inset-0 bg-ieee-blue rounded-full shadow-md -z-10 transition-all duration-300 ${
+                      isActive ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                    }`}
+                  ></span>
 
                   {!isActive && (
                     <span className="absolute inset-0 bg-ieee-blue/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></span>

@@ -1,4 +1,4 @@
-import { Chapters, Project } from "@/lib/types";
+import { Chapters, FlagshipProject } from "@/lib/types";
 import { Award, Users, Globe, Trophy, Calendar } from 'lucide-react';
 import { FaWhatsapp, FaInstagram, FaFacebookF, FaYoutube, FaLinkedinIn, FaTiktok } from 'react-icons/fa6';
 
@@ -106,7 +106,7 @@ export const aboutData = [
   }
 ];
 
-export const projectsData: Project[] = [
+export const projectsData: FlagshipProject[] = [
   {
     id: 1,
     subtitle: "Startup Battle",

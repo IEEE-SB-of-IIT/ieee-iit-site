@@ -11,7 +11,7 @@ export interface Chapters {
   color: string;
 }
 
-export interface Project {
+export interface FlagshipProject {
   id: number;
   subtitle: string;
   title: string;
@@ -19,6 +19,14 @@ export interface Project {
   image: string;
   className: string;
   type: string;
+}
+
+export interface Project {
+  name: string;
+  description: string;
+  date: string;
+  coverImage: string;
+  images: string[];
 }
 
 export interface Member {
