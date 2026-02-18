@@ -28,14 +28,14 @@ const Hero = () => {
 
         <Container className="flex flex-col lg:flex-row items-center relative z-10 gap-18">
           <div className="flex-1 w-full max-w-lg lg:max-w-xl relative h-[400px] lg:h-[600px] flex items-center justify-center order-2 lg:order-1">
-            <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-120 animate-bounce-slow z-10">
+            <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-120 z-10">
               <img
                 src="/images/image.png"
                 alt="Hero-image-1"
                 className="rounded-xl"
               />
             </div>
-            <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-100 animate-bounce-slow z-10">
+            <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-2 rounded-xl shadow-xl w-100 z-10">
               <img
                 src="/images/image.png"
                 alt="Hero-image-1"

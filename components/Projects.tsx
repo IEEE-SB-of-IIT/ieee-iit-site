@@ -143,10 +143,12 @@ const Projects = () => {
         </div>
 
         <div className="flex justify-center mt-10">
-          <button className="px-8 py-4 bg-gradient-to-r from-ieee-medium to-ieee-light text-white rounded-xl shadow-lg shadow-ieee-medium/30 font-semibold hover:shadow-xl hover:scale-102 transition-all duration-300 flex items-center gap-2 hover:cursor-pointer">
-            <span>View More Projects</span>
-              <ArrowRight size={20} />
-          </button>
+          <Link href="/projects">
+            <button className="px-8 py-4 bg-gradient-to-r from-ieee-medium to-ieee-light text-white rounded-xl shadow-lg shadow-ieee-medium/30 font-semibold hover:shadow-xl hover:scale-102 transition-all duration-300 flex items-center gap-2 hover:cursor-pointer">
+              <span>View More Projects</span>
+                <ArrowRight size={20} />
+            </button>
+          </Link>
         </div>
       </Container>
     </section>
