@@ -31,14 +31,14 @@ const Hero = () => {
           <div className="hidden lg:flex flex-1 w-full max-w-lg lg:max-w-xl relative h-[600px] items-center justify-center order-2 lg:order-1">
             <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[70%] md:w-120 z-10">
               <img
-                src="/images/image.png"
+                src="/images/group01.jpg"
                 alt="Hero-image-1"
                 className="rounded-xl w-full h-auto"
               />
             </div>
             <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[60%] md:w-100 z-10">
               <img
-                src="/images/image.png"
+                src="/images/group02.jpg"
                 alt="Hero-image-1"
                 className="rounded-xl w-full h-auto"
               />
