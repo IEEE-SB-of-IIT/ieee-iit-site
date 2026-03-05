@@ -20,7 +20,7 @@ const Hero = () => {
 
         <div className="hidden lg:flex w-[600px] h-[600px] rounded-full overflow-hidden absolute left-[-150px] top-[50%] -translate-y-1/2 z-0 opacity-15 pointer-events-none">
           <img
-            src="images/logos/SB_globe.png"
+            src="/images/logos/SB_Globe.png"
             alt="Global Technology Watermark"
             className="w-full h-full object-cover"
           />
@@ -67,7 +67,7 @@ const Hero = () => {
 
             <div className="lg:hidden w-full max-w-md mx-auto py-4">
               <img
-                src="/images/image.png"
+                src="/images/group02.jpg"
                 alt="Hero Mobile"
                 className="rounded-2xl shadow-xl w-full h-auto border border-white/20"
               />
