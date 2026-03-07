@@ -27,6 +27,7 @@ export interface Project {
   description: string;
   date: string;
   coverImage: string;
+  headerImage?: string;
   images: string[];
 }
 

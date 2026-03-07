@@ -19,8 +19,8 @@ const EventDetailPage = () => {
         notFound();
     }
 
-    // Use the placeholder image and create a gallery of 6
-    const galleryImages = Array(6).fill("/images/image.png");
+    const galleryImages = event.images && event.images.length > 0 ? event.images : Array(6).fill("/images/image.png");
+    const headerImage = event.headerImage || event.coverImage || "/images/image.png";
 
     return (
         <div className="relative min-h-screen overflow-hidden">
@@ -35,7 +35,7 @@ const EventDetailPage = () => {
                 {/* Hero section */}
                 <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden">
                     <img
-                        src="/images/image.png"
+                        src={headerImage}
                         alt={event.name}
                         className="w-full h-full object-cover"
                     />
@@ -160,47 +160,25 @@ const EventDetailPage = () => {
                             Highlights and moments captured during the event.
                         </p>
 
-                        {/* Masonry-style image grid */}
+                        {/* Dynamic Masonry-style image grid */}
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            {/* Large featured image */}
-                            <div className="col-span-2 row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer">
-                                <img
-                                    src={galleryImages[0]}
-                                    alt={`${event.name} gallery 1`}
-                                    className="w-full h-full object-cover min-h-[300px] md:min-h-[500px] transition-transform duration-700 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            </div>
-
-                            {/* Smaller images */}
-                            {galleryImages.slice(1, 3).map((img, idx) => (
-                                <div
-                                    key={idx}
-                                    className="group relative rounded-2xl overflow-hidden cursor-pointer"
-                                >
-                                    <img
-                                        src={img}
-                                        alt={`${event.name} gallery ${idx + 2}`}
-                                        className="w-full h-full object-cover min-h-[200px] md:min-h-[240px] transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                </div>
-                            ))}
-
-                            {/* Bottom row - 3 equal images */}
-                            {galleryImages.slice(3, 6).map((img, idx) => (
-                                <div
-                                    key={idx + 3}
-                                    className="group relative rounded-2xl overflow-hidden cursor-pointer"
-                                >
-                                    <img
-                                        src={img}
-                                        alt={`${event.name} gallery ${idx + 4}`}
-                                        className="w-full h-full object-cover min-h-[200px] md:min-h-[240px] transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                </div>
-                            ))}
+                            {galleryImages.map((img, idx) => {
+                                // Make the first image span 2 rows and 2 cols for larger display
+                                const isFeatured = idx === 0;
+                                return (
+                                    <div
+                                        key={idx}
+                                        className={`group relative rounded-2xl overflow-hidden cursor-pointer ${isFeatured ? 'col-span-2 row-span-2' : ''}`}
+                                    >
+                                        <img
+                                            src={img}
+                                            alt={`${event.name} gallery ${idx + 1}`}
+                                            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${isFeatured ? 'min-h-[300px] md:min-h-[500px]' : 'min-h-[200px] md:min-h-[240px]'}`}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
 

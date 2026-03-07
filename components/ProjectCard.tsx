@@ -23,7 +23,7 @@ const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
         <div className="relative h-[340px] overflow-hidden">
           {/* Image */}
           <img
-            src="/images/image.png"
+            src={project.coverImage || "/images/image.png"}
             alt={project.name}
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
           />
