@@ -6,6 +6,104 @@ import Link from "next/link";
 import { Calendar, ArrowLeft, MapPin, Clock } from "lucide-react";
 import { projects } from "@/constants/projectinto";
 
+// Auto-shuffling masonry gallery component
+const AnimatedGallery = ({ images, eventName }: { images: string[], eventName: string }) => {
+    // If we only have 6 or fewer images, just show them statically
+    const [displayImages, setDisplayImages] = React.useState<string[]>(
+        images.slice(0, 6)
+    );
+    // Track which specific index is currently transitioning
+    const [transitioningIndex, setTransitioningIndex] = React.useState<number | null>(null);
+
+    React.useEffect(() => {
+        // Only shuffle if there are more than 6 images available
+        if (images.length <= 6) return;
+
+        const intervalId = setInterval(() => {
+            // Pick a random index between 0 and 5 to swap
+            const indexToSwap = Math.floor(Math.random() * 6);
+
+            // Start the transition for this specific index
+            setTransitioningIndex(indexToSwap);
+
+            setTimeout(() => {
+                setDisplayImages(prev => {
+                    const newImages = [...prev];
+                    // Pick a random image from the available pool that isn't currently displayed
+                    const availableImages = images.filter(img => !prev.includes(img));
+                    if (availableImages.length > 0) {
+                        const randomNewImage = availableImages[Math.floor(Math.random() * availableImages.length)];
+                        newImages[indexToSwap] = randomNewImage;
+                    }
+                    return newImages;
+                });
+                // End transition
+                setTransitioningIndex(null);
+            }, 600); // Wait for fade-out/turnover to complete before swapping src
+
+        }, 3000); // Shuffle every 3 seconds
+
+        return () => clearInterval(intervalId);
+    }, [images]);
+
+    // Ensure we always render exactly 6 slots using placeholders if lacking images
+    const slots = Array(6).fill("/images/image.png");
+    displayImages.forEach((img, idx) => {
+        if (idx < 6) slots[idx] = img;
+    });
+
+    // Helper to determine transition classes for the turnover effect
+    const getTransitionClasses = (idx: number) => {
+        return transitioningIndex === idx
+            ? 'opacity-0 scale-95 rotate-y-90'
+            : 'opacity-100 scale-100 rotate-y-0';
+    };
+
+    return (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4" style={{ perspective: "1000px" }}>
+            {/* Large featured image (Index 0) */}
+            <div className={`col-span-2 row-span-2 group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out transform-gpu ${getTransitionClasses(0)}`}>
+                <img
+                    src={slots[0]}
+                    alt={`${eventName} featured`}
+                    className="w-full h-full object-cover min-h-[300px] md:min-h-[500px] transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+
+            {/* Smaller secondary images */}
+            {slots.slice(1, 3).map((img, idx) => (
+                <div
+                    key={`top-${idx}`}
+                    className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out transform-gpu ${getTransitionClasses(idx + 1)}`}
+                >
+                    <img
+                        src={img}
+                        alt={`${eventName} gallery ${idx + 2}`}
+                        className="w-full h-full object-cover min-h-[200px] md:min-h-[240px] transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+            ))}
+
+            {/* Bottom tertiary images */}
+            {slots.slice(3, 6).map((img, idx) => (
+                <div
+                    key={`bottom-${idx}`}
+                    className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out transform-gpu ${getTransitionClasses(idx + 3)}`}
+                >
+                    <img
+                        src={img}
+                        alt={`${eventName} gallery ${idx + 4}`}
+                        className="w-full h-full object-cover min-h-[200px] md:min-h-[240px] transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+            ))}
+        </div>
+    );
+};
+
 const EventDetailPage = () => {
     const params = useParams();
     const slug = params.slug as string;
@@ -18,6 +116,25 @@ const EventDetailPage = () => {
     if (!event) {
         notFound();
     }
+
+    const getOrganizer = (slug: string) => {
+        const _slug = slug.toLowerCase();
+        if (['techtrek', 'micromaze', 'tracktion', 'robotnexus-2', 'robot-nexus'].includes(_slug)) {
+            return "IEEE RAS of IIT";
+        }
+        if (['ignite'].includes(_slug)) {
+            return "IEEE EMBS of IIT";
+        }
+        if (['coderally-5', 'webspire-2', 'webspire', 'industpro-4', 'industpro-3'].includes(_slug)) {
+            return "IEEE CS of IIT";
+        }
+        if (['sherlock-2', 'sherlock'].includes(_slug)) {
+            return "IEEE WIE of IIT";
+        }
+        return "IEEE Student Branch of IIT";
+    };
+
+    const organizer = getOrganizer(event.slug);
 
     const galleryImages = event.images && event.images.length > 0 ? event.images : Array(6).fill("/images/image.png");
     const headerImage = event.headerImage || event.coverImage || "/images/image.png";
@@ -142,7 +259,7 @@ const EventDetailPage = () => {
                                                 Organized By
                                             </p>
                                             <p className="text-[#0d2440] font-semibold">
-                                                IEEE Student Branch of IIT
+                                                {organizer}
                                             </p>
                                         </div>
                                     </div>
@@ -160,26 +277,8 @@ const EventDetailPage = () => {
                             Highlights and moments captured during the event.
                         </p>
 
-                        {/* Dynamic Masonry-style image grid */}
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            {galleryImages.map((img, idx) => {
-                                // Make the first image span 2 rows and 2 cols for larger display
-                                const isFeatured = idx === 0;
-                                return (
-                                    <div
-                                        key={idx}
-                                        className={`group relative rounded-2xl overflow-hidden cursor-pointer ${isFeatured ? 'col-span-2 row-span-2' : ''}`}
-                                    >
-                                        <img
-                                            src={img}
-                                            alt={`${event.name} gallery ${idx + 1}`}
-                                            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${isFeatured ? 'min-h-[300px] md:min-h-[500px]' : 'min-h-[200px] md:min-h-[240px]'}`}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        {/* Dynamic Masonry-style image grid with auto-shuffle */}
+                        <AnimatedGallery images={galleryImages} eventName={event.name} />
                     </div>
 
                     {/* Back to events CTA */}
