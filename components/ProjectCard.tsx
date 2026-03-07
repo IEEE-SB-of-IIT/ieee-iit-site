@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, ArrowUpRight } from "lucide-react";
 
 interface ProjectCardProps {
@@ -22,10 +23,12 @@ const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
         {/* Card inner container */}
         <div className="relative h-[340px] overflow-hidden">
           {/* Image */}
-          <img
+          <Image
             src={project.coverImage || "/images/image.png"}
             alt={project.name}
-            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-75"
           />
 
           {/* Mesh gradient overlay */}
@@ -71,4 +74,4 @@ const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
   );
 };
 
-export default ProjectCard;
+export default React.memo(ProjectCard);

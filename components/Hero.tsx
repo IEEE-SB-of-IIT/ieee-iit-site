@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { counterItems } from "@/constants";
 import Container from "./ui/Container";
+import Image from "next/image";
 
 import Badge from "./ui/Badge";
 import { cn } from "@/lib/utils";
@@ -19,10 +20,11 @@ const Hero = () => {
         </div>
 
         <div className="hidden lg:flex w-[600px] h-[600px] rounded-full overflow-hidden absolute left-[-150px] top-[50%] -translate-y-1/2 z-0 opacity-15 pointer-events-none">
-          <img
+          <Image
             src="/images/logos/SB_Globe.png"
             alt="Global Technology Watermark"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-ieee-lightest via-transparent to-transparent mix-blend-overlay"></div>
         </div>
@@ -30,17 +32,23 @@ const Hero = () => {
         <Container className="flex flex-col lg:flex-row items-center relative z-10 gap-18">
           <div className="hidden lg:flex flex-1 w-full max-w-lg lg:max-w-xl relative h-[600px] items-center justify-center order-2 lg:order-1">
             <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[70%] md:w-120 z-10">
-              <img
+              <Image
                 src="/images/group01.jpg"
                 alt="Hero-image-1"
+                width={480}
+                height={320}
                 className="rounded-xl w-full h-auto"
+                priority
               />
             </div>
             <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[60%] md:w-100 z-10">
-              <img
+              <Image
                 src="/images/group02.jpg"
-                alt="Hero-image-1"
+                alt="Hero-image-2"
+                width={400}
+                height={267}
                 className="rounded-xl w-full h-auto"
+                priority
               />
             </div>
           </div>
@@ -66,10 +74,13 @@ const Hero = () => {
             </p>
 
             <div className="lg:hidden w-full max-w-md mx-auto py-4">
-              <img
+              <Image
                 src="/images/group02.jpg"
                 alt="Hero Mobile"
+                width={400}
+                height={267}
                 className="rounded-2xl shadow-xl w-full h-auto border border-white/20"
+                priority
               />
             </div>
 

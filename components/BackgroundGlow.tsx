@@ -30,7 +30,7 @@ const BackgroundGlow = () => {
         }}
       />
       <motion.div
-        className="absolute w-[520px] h-[520px] bg-[#00629B] rounded-full blur-[140px] opacity-25 mix-blend-multiply"
+        className="absolute w-[520px] h-[520px] bg-[#00629B] rounded-full blur-[100px] opacity-25 mix-blend-multiply"
         animate={{
           x: ["-20%", "120%", "-20%"],
           y: ["-10%", "120%", "-10%"],
@@ -44,10 +44,11 @@ const BackgroundGlow = () => {
         style={{
           top: "5%",
           left: "5%",
+          willChange: "transform",
         }}
       />
       <motion.div
-        className="absolute w-[640px] h-[640px] bg-[#2e5e99] rounded-full blur-[160px] opacity-25 mix-blend-multiply"
+        className="absolute w-[640px] h-[640px] bg-[#2e5e99] rounded-full blur-[100px] opacity-25 mix-blend-multiply"
         animate={{
           x: ["120%", "-30%", "120%"],
           y: ["60%", "-40%", "60%"],
@@ -61,10 +62,11 @@ const BackgroundGlow = () => {
         style={{
           bottom: "5%",
           right: "10%",
+          willChange: "transform",
         }}
       />
       <motion.div
-        className="absolute w-[420px] h-[420px] bg-[#0d2440] rounded-full blur-[120px] opacity-20 mix-blend-multiply"
+        className="absolute w-[420px] h-[420px] bg-[#0d2440] rounded-full blur-[100px] opacity-20 mix-blend-multiply"
         animate={{
           x: ["10%", "80%", "10%"],
           y: ["90%", "20%", "90%"],
@@ -78,6 +80,7 @@ const BackgroundGlow = () => {
         style={{
           bottom: "15%",
           left: "15%",
+          willChange: "transform",
         }}
       />
     </div>

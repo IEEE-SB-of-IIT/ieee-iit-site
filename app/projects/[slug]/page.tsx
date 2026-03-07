@@ -3,6 +3,7 @@
 import React, { useMemo } from "react";
 import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, ArrowLeft, MapPin, Clock } from "lucide-react";
 import { projects } from "@/constants/projectinto";
 
@@ -66,6 +67,8 @@ const AnimatedGallery = ({ images, eventName }: { images: string[], eventName: s
                 <img
                     src={slots[0]}
                     alt={`${eventName} featured`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover min-h-[300px] md:min-h-[500px] transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -80,6 +83,8 @@ const AnimatedGallery = ({ images, eventName }: { images: string[], eventName: s
                     <img
                         src={img}
                         alt={`${eventName} gallery ${idx + 2}`}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover min-h-[200px] md:min-h-[240px] transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -95,6 +100,8 @@ const AnimatedGallery = ({ images, eventName }: { images: string[], eventName: s
                     <img
                         src={img}
                         alt={`${eventName} gallery ${idx + 4}`}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover min-h-[200px] md:min-h-[240px] transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -151,10 +158,12 @@ const EventDetailPage = () => {
             <div className="relative z-10">
                 {/* Hero section */}
                 <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden">
-                    <img
+                    <Image
                         src={headerImage}
                         alt={event.name}
-                        className="w-full h-full object-cover"
+                        fill
+                        priority
+                        className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/60 to-[#0a1628]/20" />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/40 via-transparent to-transparent" />
@@ -201,19 +210,9 @@ const EventDetailPage = () => {
                                 About This Event
                             </h2>
                             <div className="space-y-4 text-[#2e5e99] text-base md:text-lg leading-relaxed">
-                                <p>{event.description}</p>
-                                <p>
-                                    This event was organized by the IEEE Student Branch of
-                                    Informatics Institute of Technology, bringing together
-                                    students, professionals, and enthusiasts in a collaborative
-                                    environment to push the boundaries of technology and
-                                    innovation.
-                                </p>
-                                <p>
-                                    Through hands-on activities, expert sessions, and networking
-                                    opportunities, participants gained valuable insights and
-                                    practical experience that complement their academic journey.
-                                </p>
+                                {event.description.split('\n\n').map((paragraph, idx) => (
+                                    <p key={idx}>{paragraph}</p>
+                                ))}
                             </div>
                         </div>
 

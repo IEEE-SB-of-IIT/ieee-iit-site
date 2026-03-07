@@ -1,5 +1,6 @@
 import { Facebook, Linkedin, Youtube } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 import {
   FaWhatsapp,
   FaInstagram,
@@ -15,9 +16,11 @@ const Footer = () => {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="text-center md:text-left">
-            <img
+            <Image
               src="/images/logos/SB.png"
               alt="SB Logo"
+              width={300}
+              height={60}
               className="w-75 mb-2"
             />
           </div>

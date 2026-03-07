@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useLayoutEffect, useRef } from "react";
+import Image from "next/image";
 import { Member } from "@/lib/types";
 import { Mail, Linkedin } from "lucide-react";
 
@@ -37,10 +38,12 @@ const TeamMemberCard: React.FC<Props> = ({ member }) => {
   return (
     <div className="group relative w-full aspect-[3/4.5] mx-auto rounded-[32px] overflow-hidden shadow-lg border-3 border-white/80">
       {/* 1. Full Background Image */}
-      <img
+      <Image
         src={member.image}
         alt={member.name}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"
+        fill
+        sizes="(max-width: 768px) 100vw, 25vw"
+        className="object-cover transition-transform duration-400 group-hover:scale-105"
       />
 
       {/* 2. Dark Liquid Glass (Smoke Theme) */}
@@ -55,7 +58,7 @@ const TeamMemberCard: React.FC<Props> = ({ member }) => {
         }}
       >
         {/* Grain Overlay for Realism */}
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        <div className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
 
         {/* Specular Edge Highlight */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/40 to-transparent" />
@@ -111,4 +114,4 @@ const TeamMemberCard: React.FC<Props> = ({ member }) => {
   );
 };
 
-export default TeamMemberCard;
+export default React.memo(TeamMemberCard);
