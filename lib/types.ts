@@ -22,6 +22,7 @@ export interface FlagshipProject {
 }
 
 export interface Project {
+  slug: string;
   name: string;
   description: string;
   date: string;
@@ -32,7 +33,7 @@ export interface Project {
 export interface Member {
   name: string;
   role: string;
-  email: string; 
+  email: string;
   linkedin: string;
   image: string;
 }
