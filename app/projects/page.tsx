@@ -2,6 +2,7 @@
 
 import ProjectCard from "@/components/ProjectCard";
 import SectionHeader from "@/components/ui/SectionHeader";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { projects } from "@/constants/projectinto";
 import React from "react";
 
@@ -17,18 +18,24 @@ const ProjectsPage = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-10 lg:px-6">
         {/* Header */}
-        <SectionHeader title="Our Events" className="mt-40 md:mt-45" />
+        <AnimatedSection>
+          <SectionHeader title="Our Events" className="mt-40 md:mt-45" />
+        </AnimatedSection>
 
         {/* Subtitle / description */}
-        <p className="text-center text-[#2e5e99] text-base md:text-lg max-w-2xl mx-auto -mt-8 mb-16 leading-relaxed">
-          From hackathons and robotics competitions to workshops and community
-          gatherings — explore the events that shape our IEEE journey.
-        </p>
+        <AnimatedSection delay={0.1}>
+          <p className="text-center text-[#2e5e99] text-base md:text-lg max-w-2xl mx-auto -mt-8 mb-16 leading-relaxed">
+            From hackathons and robotics competitions to workshops and community
+            gatherings — explore the events that shape our IEEE journey.
+          </p>
+        </AnimatedSection>
 
         {/* Flat events grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {projects.map((item, index) => (
-            <ProjectCard key={index} project={item} index={index} />
+            <AnimatedSection key={index} delay={0.05 + (index % 3) * 0.1} direction="up">
+              <ProjectCard project={item} index={index} />
+            </AnimatedSection>
           ))}
         </div>
       </div>

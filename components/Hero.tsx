@@ -1,11 +1,13 @@
+"use client";
+
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { counterItems } from "@/constants";
 import Container from "./ui/Container";
 import Image from "next/image";
-
 import Badge from "./ui/Badge";
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 
 const Hero = () => {
   return (
@@ -31,7 +33,12 @@ const Hero = () => {
 
         <Container className="flex flex-col lg:flex-row items-center relative z-10 gap-18">
           <div className="hidden lg:flex flex-1 w-full max-w-lg lg:max-w-xl relative h-[600px] items-center justify-center order-2 lg:order-1">
-            <div className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[70%] md:w-120 z-10">
+            <motion.div
+              initial={{ opacity: 0, x: -40, rotate: -3 }}
+              animate={{ opacity: 1, x: 0, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[70%] md:w-120 z-10"
+            >
               <Image
                 src="/images/group01.jpg"
                 alt="Hero-image-1"
@@ -40,8 +47,13 @@ const Hero = () => {
                 className="rounded-xl w-full h-auto"
                 priority
               />
-            </div>
-            <div className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[60%] md:w-100 z-10">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 40, rotate: 3 }}
+              animate={{ opacity: 1, x: 0, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[60%] md:w-100 z-10"
+            >
               <Image
                 src="/images/group02.jpg"
                 alt="Hero-image-2"
@@ -50,10 +62,15 @@ const Hero = () => {
                 className="rounded-xl w-full h-auto"
                 priority
               />
-            </div>
+            </motion.div>
           </div>
 
-          <div className="flex-1 text-center lg:text-left space-y-6 order-1 lg:order-2 -mt-5">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="flex-1 text-center lg:text-left space-y-6 order-1 lg:order-2 -mt-5"
+          >
             <Badge className="border-2 border-ieee-blue/60 whitespace-nowrap text-[12px] sm:text-xs md:text-sm">
               Advancing Technology for Humanity
             </Badge>
@@ -62,7 +79,8 @@ const Hero = () => {
               IEEE
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-ieee-medium to-ieee-blue">
                 {" "}
-                Student <br /> Branch{" "}
+                Student <br />
+                Branch{" "}
               </span>
               of IIT
             </h1>
@@ -90,37 +108,48 @@ const Hero = () => {
                 <ArrowRight size={20} />
               </button>
             </div>
-          </div>
+          </motion.div>
         </Container>
       </section>
 
-      <div className="w-full flex justify-center mt-6 md:mt-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        className="w-full flex justify-center mt-6 md:mt-10"
+      >
         <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-3 md:gap-6 px-4 w-full md:w-auto max-w-sm md:max-w-none">
           {counterItems.map((item, index) => {
             const Icon = item.icon;
             return (
-              <Badge
+              <motion.div
                 key={index}
-                className={cn(
-                  "uppercase p-3 md:p-5 rounded-2xl shadow-md hover:scale-101 transition-transform duration-300 min-w-0 md:min-w-[200px]",
-                  index === 4 ? "hidden md:flex flex-col" : "flex flex-col"
-                )}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.7 + index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2 text-left">
-                  {Icon && <Icon size={16} className="text-ieee-gray shrink-0 md:size-[18px]" />}
-                  <span className="text-ieee-gray font-semibold text-[10px] md:text-sm line-clamp-1">
-                    {item.label}
+                <Badge
+                  className={cn(
+                    "uppercase p-3 md:p-5 rounded-2xl shadow-md hover:scale-101 transition-transform duration-300 min-w-0 md:min-w-[200px]",
+                    index === 4 ? "hidden md:flex flex-col" : "flex flex-col"
+                  )}
+                >
+                  <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2 text-left">
+                    {Icon && <Icon size={16} className="text-ieee-gray shrink-0 md:size-[18px]" />}
+                    <span className="text-ieee-gray font-semibold text-[10px] md:text-sm line-clamp-1">
+                      {item.label}
+                    </span>
+                  </div>
+                  <span className="text-ieee-blue font-bold text-lg md:text-2xl ml-6 md:ml-8 text-left">
+                    {item.value}
+                    {item.suffix}
                   </span>
-                </div>
-                <span className="text-ieee-blue font-bold text-lg md:text-2xl ml-6 md:ml-8 text-left">
-                  {item.value}
-                  {item.suffix}
-                </span>
-              </Badge>
+                </Badge>
+              </motion.div>
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
