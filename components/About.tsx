@@ -17,7 +17,7 @@ const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {aboutData.map((item, index) => (
-            <AnimatedSection key={index} delay={0.1 + index * 0.12} direction="up">
+            <AnimatedSection key={index} delay={0.1 + index * 0.12} direction="up" className="h-full">
               <InfoCard
                 title={item.title}
                 description={item.description}

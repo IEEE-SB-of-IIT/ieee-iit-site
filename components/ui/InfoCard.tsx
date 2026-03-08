@@ -7,11 +7,14 @@ interface InfoCardProps {
 
 const InfoCard = ({ title, description }: InfoCardProps) => {
   return (
-    <div className="bg-white/40 backdrop-blur-sm border border-white/60 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 group">
-      <h3 className="text-xl font-bold text-ieee-medium mb-4 uppercase group-hover:text-ieee-dark transition-colors">
-        {title}
-      </h3>
-      <p className="text-ieee-dark/80 leading-relaxed text-sm">
+    <div className="h-full flex flex-col bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md border border-white/50 p-8 rounded-3xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+      <div className="mb-4">
+        <h3 className="text-2xl font-extrabold text-ieee-medium uppercase tracking-wide group-hover:text-ieee-dark transition-colors duration-300">
+          {title}
+        </h3>
+        <div className="w-12 h-1 bg-ieee-medium rounded-full mt-3 group-hover:w-full transition-all duration-500 ease-out"></div>
+      </div>
+      <p className="text-ieee-dark/80 leading-relaxed text-base flex-grow">
         {description}
       </p>
     </div>
