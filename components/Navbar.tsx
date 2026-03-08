@@ -81,7 +81,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center w-full">
             <div className="flex items-center gap-3 md:gap-4">
               <Image
-                src="/images/logos/SB.png"
+                src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992711/SB_vexrqt.png"
                 alt="SB Logo"
                 width={180}
                 height={36}
@@ -93,7 +93,7 @@ const Navbar = () => {
             <div className="opacity-90 hover:opacity-100 transition-opacity">
               <Link href="https://www.ieee.org/" className="hover:cursor-pointer">
                 <Image
-                  src="/images/logos/IEEE.png"
+                  src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992705/IEEE_exhtzh.png"
                   alt="IEEE Logo"
                   width={100}
                   height={36}
@@ -132,7 +132,7 @@ const Navbar = () => {
         )}>
           <div className="md:hidden flex items-center">
             <Image
-              src="/images/logos/SB.png"
+              src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992711/SB_vexrqt.png"
               alt="SB Logo"
               width={120}
               height={24}
@@ -153,8 +153,8 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden group ${isActive
-                      ? "text-white"
-                      : "text-ieee-dark hover:text-ieee-medium"
+                    ? "text-white"
+                    : "text-ieee-dark hover:text-ieee-medium"
                     }`}
                 >
                   <span
@@ -183,8 +183,8 @@ const Navbar = () => {
 
         <div
           className={`md:hidden absolute top-full left-0 w-full mt-2 overflow-hidden transition-all duration-300 ease-in-out origin-top ${isMobileMenuOpen
-              ? "max-h-96 opacity-100 scale-100"
-              : "max-h-0 opacity-0 scale-95"
+            ? "max-h-96 opacity-100 scale-100"
+            : "max-h-0 opacity-0 scale-95"
             }`}
         >
           <div className="bg-ieee-lightest/95 backdrop-blur-2xl border border-white/50 rounded-2xl shadow-xl p-2 mx-2 flex flex-col gap-1">
@@ -199,8 +199,8 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className={`block px-4 py-3 rounded-xl font-medium text-center transition-all ${isActive
-                      ? "bg-ieee-blue text-white shadow-md"
-                      : "text-ieee-dark hover:bg-white/50 active:scale-95"
+                    ? "bg-ieee-blue text-white shadow-md"
+                    : "text-ieee-dark hover:bg-white/50 active:scale-95"
                     }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

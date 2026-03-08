@@ -25,7 +25,7 @@ const Projects = () => {
           <AnimatedSection delay={0.1} className="md:col-span-3 md:row-span-2 order-1">
             <BentoCard className="h-[400px] md:h-full">
               <img
-                src={`/images/flagships/${p1.image}`}
+                src={p1.image.startsWith('http') ? p1.image : `/images/flagships/${p1.image}`}
                 alt={p1.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -49,7 +49,7 @@ const Projects = () => {
           <AnimatedSection delay={0.2} direction="right" className="md:col-span-3 order-2">
             <BentoCard className="h-[300px] md:h-[250px]">
               <img
-                src={`/images/flagships/${p2.image}`}
+                src={p2.image.startsWith('http') ? p2.image : `/images/flagships/${p2.image}`}
                 alt={p2.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -68,7 +68,7 @@ const Projects = () => {
           <AnimatedSection delay={0.3} direction="right" className="md:col-span-3 order-3">
             <BentoCard className="h-[300px] md:h-[250px]">
               <img
-                src={`/images/flagships/${p3.image}`}
+                src={p3.image.startsWith('http') ? p3.image : `/images/flagships/${p3.image}`}
                 alt={p3.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -87,14 +87,14 @@ const Projects = () => {
           <AnimatedSection delay={0.15} direction="left" className="md:col-span-4 order-4">
             <BentoCard className="h-[300px] md:h-[180px]">
               <img
-                src={`/images/flagships/${p5.image}`}
+                src={p5.image.startsWith('http') ? p5.image : `/images/flagships/${p5.image}`}
                 alt={p5.title}
                 className="absolute inset-0 w-full h-full object-cover opacity-80 md:hidden transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent md:hidden"></div>
 
               <img
-                src={`/images/flagships/${p5.image}`}
+                src={p5.image.startsWith('http') ? p5.image : `/images/flagships/${p5.image}`}
                 alt={p5.title}
                 className="hidden md:block absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110"
               />
@@ -123,14 +123,14 @@ const Projects = () => {
           <AnimatedSection delay={0.25} direction="right" className="md:col-span-2 order-5">
             <BentoCard className="h-[300px] md:h-[180px]">
               <img
-                src={`/images/flagships/${p4.image}`}
+                src={p4.image.startsWith('http') ? p4.image : `/images/flagships/${p4.image}`}
                 alt={p4.title}
                 className="absolute inset-0 w-full h-full object-cover opacity-80 md:hidden transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent md:hidden"></div>
 
               <img
-                src={`/images/flagships/${p4.image}`}
+                src={p4.image.startsWith('http') ? p4.image : `/images/flagships/${p4.image}`}
                 alt={p4.title}
                 className="hidden md:block absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110"
               />

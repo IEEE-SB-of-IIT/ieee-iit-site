@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="text-center md:text-left">
             <Image
-              src="/images/logos/SB.png"
+              src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992711/SB_vexrqt.png"
               alt="SB Logo"
               width={300}
               height={60}

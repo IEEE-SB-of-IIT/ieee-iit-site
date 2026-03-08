@@ -24,7 +24,7 @@ const ChapterCard = ({ chapter }: ChapterCardProps) => {
 
       <div className="my-2 w-full h-24 flex items-center justify-center mb-4 rounded-2xl p-3 transition-transform duration-500 scale-105 group-hover:scale-110">
         <img
-          src={`/images/logos/${chapter.icon}`}
+          src={chapter.icon.startsWith('http') ? chapter.icon : `/images/logos/${chapter.icon}`}
           alt={chapter.name}
           className="w-full h-full object-contain transition-all duration-500 relative z-0"
         />

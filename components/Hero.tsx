@@ -23,7 +23,7 @@ const Hero = () => {
 
         <div className="hidden lg:flex w-[600px] h-[600px] rounded-full overflow-hidden absolute left-[-150px] top-[50%] -translate-y-1/2 z-0 opacity-15 pointer-events-none">
           <Image
-            src="/images/logos/SB_Globe.png"
+            src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992709/SB_Globe_sb8dos.png"
             alt="Global Technology Watermark"
             fill
             className="object-cover"
@@ -40,7 +40,7 @@ const Hero = () => {
               className="absolute top-[10%] left-[5%] lg:left-[20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[70%] md:w-120 z-10"
             >
               <Image
-                src="/images/group01.jpg"
+                src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772990521/group01_qefqik.jpg"
                 alt="Hero-image-1"
                 width={480}
                 height={320}
@@ -55,7 +55,7 @@ const Hero = () => {
               className="absolute bottom-[15%] right-[5%] lg:right-[-20px] bg-white/10 backdrop-blur-md border border-white/30 p-1.5 md:p-2 rounded-xl shadow-xl w-[60%] md:w-100 z-10"
             >
               <Image
-                src="/images/group02.jpg"
+                src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772990517/group02_xsdf8w.jpg"
                 alt="Hero-image-2"
                 width={400}
                 height={267}
@@ -93,7 +93,7 @@ const Hero = () => {
 
             <div className="lg:hidden w-full max-w-md mx-auto py-4">
               <Image
-                src="/images/group02.jpg"
+                src="https://res.cloudinary.com/dwr3qe5al/image/upload/v1772990517/group02_xsdf8w.jpg"
                 alt="Hero Mobile"
                 width={400}
                 height={267}

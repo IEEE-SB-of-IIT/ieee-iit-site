@@ -39,7 +39,7 @@ export const chapters: Chapters[] = [
     name: 'Computer Society',
     description:
       'Promotes innovation and excellence in computer science, software engineering, and information technology.',
-    icon: 'CS.png',
+    icon: 'https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992702/CS_tuu2bf.png',
     instagram: 'https://instagram.com/ieee_cs_iit',
     facebook: 'https://facebook.com/ieee_cs_iit',
     linkedin: 'https://linkedin.com/ieee_cs_iit',
@@ -51,7 +51,7 @@ export const chapters: Chapters[] = [
     name: 'Robotics and Automation Society',
     description:
       'Focuses on the advancement of robotics, automation, and intelligent systems through research and hands-on projects.',
-    icon: 'RAS.png',
+    icon: 'https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992703/RAS_fglamj.png',
     instagram: 'https://instagram.com/ieee_ras_iit',
     facebook: 'https://facebook.com/ieee_ras_iit',
     linkedin: 'https://linkedin.com/ieee_ras_iit',
@@ -63,7 +63,7 @@ export const chapters: Chapters[] = [
     name: 'Women in Engineering',
     description:
       'Empowers and supports women engineers and students, fostering diversity, inclusion, and leadership in engineering.',
-    icon: 'WIE.png',
+    icon: 'https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992720/WIE_pwkrek.png',
     instagram: 'https://instagram.com/ieee_wie_iit',
     facebook: 'https://facebook.com/ieee_wie_iit',
     linkedin: 'https://linkedin.com/ieee_wie_iit',
@@ -74,7 +74,7 @@ export const chapters: Chapters[] = [
     name: 'Computational Intelligence Society',
     description:
       'Advances the theory and application of neural networks, fuzzy systems, evolutionary computation, and AI.',
-    icon: 'CIS.png',
+    icon: 'https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992714/CIS_debmaz.png',
     instagram: 'https://instagram.com/ieee_cis_iit',
     facebook: 'https://facebook.com/ieee_cis_iit',
     linkedin: 'https://linkedin.com/ieee_cis_iit',
@@ -85,7 +85,7 @@ export const chapters: Chapters[] = [
     name: 'Engineering in Medicine and Biology Society',
     description:
       'Bridges engineering and medicine to improve healthcare through biomedical innovation and research.',
-    icon: 'EMBS.png',
+    icon: 'https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992727/EMBS_s1sdjc.png',
     instagram: 'https://instagram.com/ieee_embs_iit',
     facebook: 'https://facebook.com/ieee_embs_iit',
     linkedin: 'https://linkedin.com/ieee_embs_iit',
@@ -114,7 +114,7 @@ export const projectsData: FlagshipProject[] = [
     subtitle: "Startup Battle",
     title: "CodeSprint",
     description: "Sri Lanka's largest inter-university startup incubator empowering undergraduates to launch impactful tech.",
-    image: "codesprint.png",
+    image: "https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992845/codesprint_sy4n5b.png",
     className: "md:col-span-2 md:row-span-2",
     type: "large"
   },
@@ -123,7 +123,7 @@ export const projectsData: FlagshipProject[] = [
     subtitle: "Robotics Contest",
     title: "MicroMaze",
     description: "A competitive micromouse robotics challenge fostering innovation.",
-    image: "micromaze.jpg",
+    image: "https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992862/micromaze_irok8f.jpg",
     className: "",
     type: "split-right"
   },
@@ -132,7 +132,7 @@ export const projectsData: FlagshipProject[] = [
     subtitle: "Hackathon",
     title: "CODERALLY",
     description: "A 24-hour hackathon testing competitive programming excellence.",
-    image: "coderally.jpg",
+    image: "https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992843/coderally_kotqds.jpg",
     className: "",
     type: "split-right-large"
   },
@@ -141,7 +141,7 @@ export const projectsData: FlagshipProject[] = [
     subtitle: "MedTech Summit",
     title: "IGNITE",
     description: "A two phase MedTech event sparking innovation through IT.",
-    image: "ignite.png",
+    image: "https://res.cloudinary.com/dwr3qe5al/image/upload/v1772993158/ignite_vudveh.png",
     className: "md:col-span-1 md:row-span-1 bg-ieee-dark text-white",
     type: "icon"
   },
@@ -150,7 +150,7 @@ export const projectsData: FlagshipProject[] = [
     subtitle: "Mystery Hunt",
     title: "SHErlock",
     description: "A national problem solving competition celebrating women in STEM.",
-    image: "sherlock.jpg",
+    image: "https://res.cloudinary.com/dwr3qe5al/image/upload/v1772992840/sherlock_lb6ihq.jpg",
     className: "md:col-span-2 bg-gradient-to-r from-ieee-lightest to-white",
     type: "split-half"
   }
