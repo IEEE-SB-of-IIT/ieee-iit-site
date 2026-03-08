@@ -8,6 +8,7 @@ export interface Chapters {
   instagram: string;
   facebook: string;
   linkedin: string;
+  website?: string;
   color: string;
 }
 

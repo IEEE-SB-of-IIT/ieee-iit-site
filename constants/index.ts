@@ -43,6 +43,7 @@ export const chapters: Chapters[] = [
     instagram: 'https://instagram.com/ieee_cs_iit',
     facebook: 'https://facebook.com/ieee_cs_iit',
     linkedin: 'https://linkedin.com/ieee_cs_iit',
+    website: 'https://csieeeiit.cloud/',
     color: '#FAA41B',
   },
   {
@@ -54,6 +55,7 @@ export const chapters: Chapters[] = [
     instagram: 'https://instagram.com/ieee_ras_iit',
     facebook: 'https://facebook.com/ieee_ras_iit',
     linkedin: 'https://linkedin.com/ieee_ras_iit',
+    website: 'https://ras.iit.ac.lk/',
     color: '#990A2C',
   },
   {
