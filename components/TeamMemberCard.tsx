@@ -48,18 +48,16 @@ const TeamMemberCard: React.FC<Props> = ({ member }) => {
 
       {/* 2. Dark Liquid Glass (Smoke Theme) */}
       <div
-        className="absolute inset-0 top-[20%] bg-black/40 backdrop-blur-[80px] backdrop-saturate-[1.8] border-t border-black/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)]
+        className="absolute inset-0 top-[20%] bg-black/40 backdrop-blur-[40px] backdrop-saturate-[1.8] border-t border-black/40
                    before:absolute before:inset-0 before:bg-gradient-to-b before:from-black/10 before:to-transparent before:opacity-50 before:pointer-events-none"
         style={{
           maskImage:
             "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
           WebkitMaskImage:
             "linear-gradient(to top, black 0%, black 25%, transparent 100%)",
+          transform: 'translateZ(0)',
         }}
       >
-        {/* Grain Overlay for Realism */}
-        <div className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
-
         {/* Specular Edge Highlight */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/40 to-transparent" />
       </div>

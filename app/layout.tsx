@@ -25,25 +25,22 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} antialiased relative min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-500/30 overflow-x-hidden`}
       >
-        <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="fixed inset-0 z-0 pointer-events-none" style={{ contain: 'strict' }}>
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-blue-500/20 rounded-full mix-blend-multiply filter blur-[120px] opacity-60 animate-blob" />
-            <div className="absolute top-[10%] -right-[10%] w-[40vw] h-[40vw] bg-indigo-500/20 rounded-full mix-blend-multiply filter blur-[120px] opacity-60 animate-blob animation-delay-2000" />
-            <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] bg-sky-400/20 rounded-full mix-blend-multiply filter blur-[120px] opacity-50 animate-blob animation-delay-4000" />
+            <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-blue-500/15 rounded-full opacity-60" style={{ filter: 'blur(120px)', transform: 'translateZ(0)' }} />
+            <div className="absolute top-[10%] -right-[10%] w-[40vw] h-[40vw] bg-indigo-500/15 rounded-full opacity-60" style={{ filter: 'blur(120px)', transform: 'translateZ(0)' }} />
+            <div className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] bg-sky-400/15 rounded-full opacity-50" style={{ filter: 'blur(120px)', transform: 'translateZ(0)' }} />
           </div>
-
-          <div className="absolute inset-0 opacity-[0.04] brightness-100 contrast-150 mix-blend-overlay" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }}></div>
 
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.07) 1px, transparent 1px), 
-                                 linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px)`,
+              backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px), 
+                                 linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px)`,
               backgroundSize: "80px 80px",
+              transform: 'translateZ(0)',
             }}
           />
-
-          <div className="absolute inset-0 opacity-[0.03] mix-blend-hard-light" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
         </div>
 
         <div className="relative z-10 flex flex-col min-h-screen">
