@@ -281,9 +281,20 @@ export const projects: Project[] = [
         name: "Aquathon",
         description: "Aquathon is a mini-hackathon that is newly presented by the IEEE Student Branch of the Informatics Institute of Technology with the aim of introducing undergraduate freshers to the world of hackathons. This mini-hackathon is exclusively for all Level 04 students at the Informatics Institute of Technology who are new to the technology field and eager to experience challenges. The insufficient idea about hackathons and less hackathon experience among fresh undergraduates are the major reasons for this new initiative. This is a six-hour mini-hackathon consisting of fifteen programming questions in order to deliver a vast idea about the structure of hackathons, where those questions are categorized into easy, medium, and hard type questions.",
         date: "June 13, 2023",
-        coverImage: "/images/events/aquathon/card.jpg",
-        headerImage: "/images/events/aquathon/header.jpg",
-        images: ["/images/events/aquathon/card.jpg", "/images/events/aquathon/header.jpg", "/images/events/aquathon/imgi_12_Aquathon-Gallery-2.jpg", "/images/events/aquathon/imgi_15_Aquathon-Gallery-3.jpg", "/images/events/aquathon/imgi_18_Aquathon-Gallery-4.jpg", "/images/events/aquathon/imgi_21_Aquathon-Gallery-5.jpg", "/images/events/aquathon/imgi_27_Aquathon-Gallery-6.jpg", "/images/events/aquathon/imgi_33_Aquathon-Gallery-7.jpg", "/images/events/aquathon/imgi_39_Aquathon-Gallery-8.jpg", "/images/events/aquathon/imgi_9_Aquathon-Gallery-1.jpg"]
+        coverImage: "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201651/card_s6ec9q.jpg",
+        headerImage: "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201655/header_sz4azv.jpg",
+        images: [
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201651/card_s6ec9q.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201655/header_sz4azv.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201661/imgi_12_Aquathon-Gallery-2_w1tkj6.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201637/imgi_15_Aquathon-Gallery-3_lx826j.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201637/imgi_18_Aquathon-Gallery-4_jvd4ix.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201639/imgi_21_Aquathon-Gallery-5_woyxh7.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201644/imgi_27_Aquathon-Gallery-6_lqbva4.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201647/imgi_33_Aquathon-Gallery-7_tsustc.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201650/imgi_39_Aquathon-Gallery-8_u42nlt.jpg",
+            "https://res.cloudinary.com/dwr3qe5al/image/upload/v1773201658/imgi_9_Aquathon-Gallery-1_y31irw.jpg"
+        ]
     },
 
     // 2022
