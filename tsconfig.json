@@ -24,9 +24,8 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "*"
-      ]
+      "@/*": ["*"],
+      "@prisma/client": ["prisma/generated/prisma/client/client"]
     }
   },
   "include": [

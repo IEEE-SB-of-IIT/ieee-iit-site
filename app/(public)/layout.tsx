@@ -1,0 +1,48 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export default function PublicLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+      <div
+        className="fixed inset-0 z-0 pointer-events-none"
+        style={{ contain: "strict" }}
+      >
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-blue-500/15 rounded-full opacity-60"
+            style={{ filter: "blur(120px)", transform: "translateZ(0)" }}
+          />
+          <div
+            className="absolute top-[10%] -right-[10%] w-[40vw] h-[40vw] bg-indigo-500/15 rounded-full opacity-60"
+            style={{ filter: "blur(120px)", transform: "translateZ(0)" }}
+          />
+          <div
+            className="absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] bg-sky-400/15 rounded-full opacity-50"
+            style={{ filter: "blur(120px)", transform: "translateZ(0)" }}
+          />
+        </div>
+
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+                               linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px)`,
+            backgroundSize: "80px 80px",
+            transform: "translateZ(0)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
+    </>
+  );
+}

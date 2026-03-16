@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma/client"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id             String   @id @default(cuid())
+  name           String
+  email          String   @unique
+  hashedPassword String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Event {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  description      String
+  date             DateTime
+  startTime        String?
+  endTime          String?
+  isAllDay         Boolean  @default(true)
+  society          String
+  coverImage       String
+  headerImage      String?
+  images           String
+  location         String?
+  registrationLink String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([date])
+  @@index([society])
+}

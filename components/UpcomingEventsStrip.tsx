@@ -81,9 +81,9 @@ const UpcomingEventsStrip = ({ upcomingEvents, allEvents }: UpcomingEventsStripP
 
       {/* Carousel */}
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-4 md:gap-6">
+        <div className="flex">
           {displayEvents.map((event) => (
-            <div key={event.slug} className="flex-shrink-0">
+            <div key={event.slug} className="flex-shrink-0 pr-4 md:pr-6">
               <UpcomingEventCard
                 event={event}
                 daysUntil={getDaysUntil(event.date)}
