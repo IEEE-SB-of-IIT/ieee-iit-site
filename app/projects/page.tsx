@@ -1,9 +1,6 @@
 "use client";
 
 import React, { useState, useMemo, useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
-import { motion } from "motion/react";
-import { CalendarRange, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import YearFilterBar from "@/components/YearFilterBar";
@@ -105,71 +102,13 @@ const ProjectsPage = () => {
           </p>
         </AnimatedSection>
 
-        {/* Event Calendar CTA */}
-        <AnimatedSection delay={0.15}>
-          <div className="flex justify-center mb-14">
-            <Link href="/events/calendar">
-              <motion.div
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer"
-              >
-                {/* Animated border gradient */}
-                <div className="absolute -inset-[1px] bg-gradient-to-r from-[#00629B] via-[#5cc8ff] to-[#00629B] rounded-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]" />
-
-                {/* Inner content */}
-                <div className="relative flex items-center gap-4 px-7 py-4 md:px-10 md:py-5 bg-[#0d2440]/95 backdrop-blur-2xl rounded-2xl">
-                  {/* Calendar icon with glow */}
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-[#5cc8ff]/30 rounded-xl blur-lg group-hover:bg-[#5cc8ff]/50 transition-all duration-500" />
-                    <div className="relative p-2.5 bg-gradient-to-br from-[#00629B] to-[#5cc8ff] rounded-xl shadow-[0_0_20px_rgba(92,200,255,0.3)] group-hover:shadow-[0_0_30px_rgba(92,200,255,0.5)] transition-shadow duration-500">
-                      <CalendarRange size={22} className="text-white" />
-                    </div>
-                  </div>
-
-                  {/* Text */}
-                  <div className="flex flex-col">
-                    <span className="text-white/50 text-xs font-medium tracking-wider uppercase">
-                      Explore
-                    </span>
-                    <span className="text-white text-lg md:text-xl font-bold tracking-tight">
-                      Event Calendar
-                    </span>
-                  </div>
-
-                  {/* Upcoming badge + arrow */}
-                  <div className="flex items-center gap-3 ml-2">
-                    {upcomingCount > 0 && (
-                      <span className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#5cc8ff]/15 border border-[#5cc8ff]/25 text-xs font-bold text-[#5cc8ff]">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#5cc8ff] opacity-75" />
-                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#5cc8ff]" />
-                        </span>
-                        {upcomingCount} live
-                      </span>
-                    )}
-                    <div className="p-2 rounded-full bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
-                      <ArrowRight
-                        size={18}
-                        className="text-[#5cc8ff] group-hover:translate-x-1 transition-transform duration-300"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Hover scanline effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                </div>
-              </motion.div>
-            </Link>
-          </div>
-        </AnimatedSection>
-
-        {/* Year Filter Bar */}
+        {/* Unified toolbar: year filters + calendar CTA */}
         <YearFilterBar
           years={years}
           activeYear={activeYear}
           onYearChange={handleYearChange}
           scrollActiveYear={scrollActiveYear}
+          upcomingCount={upcomingCount}
         />
 
         {/* Year-separated event sections */}

@@ -27,6 +27,7 @@ export interface Project {
   name: string;
   description: string;
   date: string;
+  society: "CS" | "RAS" | "WIE" | "CIS" | "EMBS" | "SB";
   coverImage: string;
   headerImage?: string;
   images: string[];
