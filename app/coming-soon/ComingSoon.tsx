@@ -296,7 +296,7 @@ export default function ComingSoonPage() {
             <span className="relative z-10">Join Our Team</span>
           </a>
           <a
-            href="#waitlist"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeokkO4i2yXB7IMHhsApmw0_4FrGWeoklr1bi_d5zFgO0C96w/viewform?usp=dialog"
             className="group relative px-7 py-3 rounded-full border border-[#D4AF37]/40 text-sm font-medium text-[#D4AF37] tracking-wide uppercase text-center transition-all duration-300 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]"
             style={{ backgroundPosition: "left center" }}
           >
