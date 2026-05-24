@@ -114,8 +114,11 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
 
 export default function ComingSoonPage() {
   const [isVisible, setIsVisible] = useState(false);
-
   const [wordIndex, setWordIndex] = useState(0);
+  const [showWaitlist, setShowWaitlist] = useState(false);
+  const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [waitlistStatus, setWaitlistStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [waitlistMessage, setWaitlistMessage] = useState("");
 
   useEffect(() => {
     setIsVisible(true);
@@ -128,6 +131,30 @@ export default function ComingSoonPage() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleWaitlistSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setWaitlistStatus("loading");
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: waitlistEmail }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setWaitlistStatus("success");
+        setWaitlistMessage(data.message);
+        setWaitlistEmail("");
+      } else {
+        setWaitlistStatus("error");
+        setWaitlistMessage(data.error);
+      }
+    } catch {
+      setWaitlistStatus("error");
+      setWaitlistMessage("Something went wrong. Please try again.");
+    }
+  };
 
   return (
     <section className="relative min-h-screen flex flex-col justify-start items-start overflow-hidden bg-black">
@@ -284,26 +311,87 @@ export default function ComingSoonPage() {
       >
         <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
           <a
-            href="#partner"
+            href="mailto:ieee@iit.ac.lk"
             className="group relative px-7 py-3 rounded-full border border-[#D4AF37]/40 text-sm font-medium text-[#D4AF37] tracking-wide uppercase text-center transition-all duration-300 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]"
           >
             <span className="relative z-10">Partner with Us</span>
           </a>
           <a
-            href="#join-team"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeokkO4i2yXB7IMHhsApmw0_4FrGWeoklr1bi_d5zFgO0C96w/viewform?usp=dialog"
             className="group relative px-7 py-3 rounded-full border border-white/20 text-sm font-medium text-white/80 tracking-wide uppercase text-center transition-all duration-300 hover:border-white/50 hover:text-white hover:bg-white/5 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]"
           >
             <span className="relative z-10">Join Our Team</span>
           </a>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeokkO4i2yXB7IMHhsApmw0_4FrGWeoklr1bi_d5zFgO0C96w/viewform?usp=dialog"
-            className="group relative px-7 py-3 rounded-full border border-[#D4AF37]/40 text-sm font-medium text-[#D4AF37] tracking-wide uppercase text-center transition-all duration-300 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]"
-            style={{ backgroundPosition: "left center" }}
+          <button
+            onClick={() => { setShowWaitlist(true); setWaitlistStatus("idle"); setWaitlistMessage(""); }}
+            className="group relative px-7 py-3 rounded-full border border-[#D4AF37]/40 text-sm font-medium text-[#D4AF37] tracking-wide uppercase text-center transition-all duration-300 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] cursor-pointer"
           >
             <span className="relative z-10">Join the Waitlist</span>
-          </a>
+          </button>
         </div>
       </div>
+
+      {/* Waitlist Modal */}
+      {showWaitlist && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          onClick={() => setShowWaitlist(false)}
+        >
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+          <div
+            className="relative w-full max-w-md rounded-2xl border border-white/10 bg-black/90 backdrop-blur-xl p-8 shadow-[0_0_60px_rgba(212,175,55,0.1)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowWaitlist(false)}
+              className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors text-xl leading-none cursor-pointer"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+            <h2
+              className="text-2xl font-display text-white mb-2"
+              style={{ letterSpacing: "0.05em" }}
+            >
+              Join the Waitlist
+            </h2>
+            <p className="text-sm text-white/50 mb-6">
+              Be the first to know when we launch. Drop your email below.
+            </p>
+
+            {waitlistStatus === "success" ? (
+              <div className="text-center py-4">
+                <div className="text-[#D4AF37] text-4xl mb-3">✓</div>
+                <p className="text-white/80 text-sm">{waitlistMessage}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleWaitlistSubmit} className="space-y-4">
+                <div>
+                  <input
+                    type="email"
+                    required
+                    placeholder="your@email.com"
+                    value={waitlistEmail}
+                    onChange={(e) => setWaitlistEmail(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-white/30 outline-none focus:border-[#D4AF37]/50 focus:ring-1 focus:ring-[#D4AF37]/30 transition-all duration-300"
+                  />
+                </div>
+                {waitlistStatus === "error" && (
+                  <p className="text-red-400/80 text-xs">{waitlistMessage}</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={waitlistStatus === "loading"}
+                  className="w-full py-3 rounded-xl text-sm font-medium tracking-wide uppercase transition-all duration-300 cursor-pointer border border-[#D4AF37]/60 text-[#D4AF37] hover:bg-[#D4AF37]/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {waitlistStatus === "loading" ? "Submitting..." : "Join Now"}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
