@@ -148,7 +148,7 @@ export default function ComingSoonPage() {
         </video> */}
 
         <img
-          className="w-full h-full object-cover object-center opacity-80"
+          className="w-full h-full object-cover object-[75%_center] md:object-center opacity-80"
           src="/images/coming-soon/hero_image.png"
           alt="hero-image"
         />
@@ -185,7 +185,7 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-16 lg:pt-20">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pt-16 lg:pt-20 pb-32 sm:pb-24">
         <div className="lg:max-w-[55%]">
           <div
             className={`mb-8 transition-all duration-700 ${
@@ -276,37 +276,32 @@ export default function ComingSoonPage() {
         </div>
       </div>
 
-      {/* Stats */}
+      {/* CTA Buttons */}
       <div
-        className={`absolute bottom-12 left-0 right-0 px-6 lg:px-12 transition-all duration-700 delay-500 ${
-          isVisible ? "opacity-100" : "opacity-0"
+        className={`absolute bottom-6 sm:bottom-12 left-0 right-0 px-4 sm:px-6 lg:px-12 transition-all duration-700 delay-500 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
-          {[
-            {
-              value: "48hrs",
-              label: "one shot to build",
-            },
-            {
-              value: "1000+",
-              label: "builders. one stage.",
-            },
-            {
-              value: "2026",
-              label: "something big is coming",
-            },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-2">
-              <span className="text-3xl lg:text-4xl font-display text-white">
-                {stat.value}
-              </span>
-
-              <span className="text-xs text-white/50 leading-tight">
-                {stat.label}
-              </span>
-            </div>
-          ))}
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+          <a
+            href="#partner"
+            className="group relative px-7 py-3 rounded-full border border-[#D4AF37]/40 text-sm font-medium text-[#D4AF37] tracking-wide uppercase text-center transition-all duration-300 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]"
+          >
+            <span className="relative z-10">Partner with Us</span>
+          </a>
+          <a
+            href="#join-team"
+            className="group relative px-7 py-3 rounded-full border border-white/20 text-sm font-medium text-white/80 tracking-wide uppercase text-center transition-all duration-300 hover:border-white/50 hover:text-white hover:bg-white/5 hover:shadow-[0_0_20px_rgba(255,255,255,0.08)]"
+          >
+            <span className="relative z-10">Join Our Team</span>
+          </a>
+          <a
+            href="#waitlist"
+            className="group relative px-7 py-3 rounded-full border border-[#D4AF37]/40 text-sm font-medium text-[#D4AF37] tracking-wide uppercase text-center transition-all duration-300 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]"
+            style={{ backgroundPosition: "left center" }}
+          >
+            <span className="relative z-10">Join the Waitlist</span>
+          </a>
         </div>
       </div>
     </section>
