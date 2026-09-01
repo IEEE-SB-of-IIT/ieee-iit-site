@@ -19,7 +19,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const googleTagId = "G-XXXXXXXXXX";
+  const googleTagId = "G-0KE2HMKXLE";
 
   return (
     <html lang="en">
