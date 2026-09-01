@@ -19,25 +19,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
+  const googleTagId = "G-XXXXXXXXXX";
 
   return (
     <html lang="en">
       <head>
-        {googleTagId ? (
-          <>
-            <Script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-            />
-            <Script id="google-tag">{`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${googleTagId}');
-            `}</Script>
-          </>
-        ) : null}
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+        />
+        <Script id="google-tag">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${googleTagId}');
+        `}</Script>
       </head>
       <body
         className={`${poppins.variable} antialiased relative min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-500/30 overflow-x-hidden`}
